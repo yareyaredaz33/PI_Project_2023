@@ -1,1 +1,2 @@
-# PI_Project_2023
+# TrackMe 
+# TrackMe is a simple yet effective program that offers you a clear overview of the applications you've used throughout the day. Whether you're looking to enhance productivity, manage your time better, or gain insights into your digital routines, TrackMe provides a user-friendly solution by tracking and presenting your daily program usage in an easily accessible format. With TrackMe, you can take control of your digital habits and make informed decisions about how you use your computer.
