@@ -1,59 +1,45 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+using Npgsql;
 
 class DatabaseHelper
 {
     private string connectionString; // Рядок підключення до бази даних
 
-    public DatabaseHelper(string connectionString)
+    static void FillApplicationTableWithRandomData(NpgsqlConnection conn)
     {
-        this.connectionString = connectionString;
-    }
-
-    public void PrintDataFromTable(string tableName)
-    {
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        using (var insertCmd = new NpgsqlCommand("INSERT INTO application (app_id, app_name, app_category) VALUES (@appId, @app_name, @app_category)", conn))
         {
-            connection.Open();
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM {tableName}", connection))
+            var random = new Random();
+
+            for (int i = 0; i < 30; i++) // Додати 30 записів
             {
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"{reader["ColumnName1"]} - {reader["ColumnName2"]}"); // Замініть на імена колонок з вашої таблиці
-                    }
-                }
+                insertCmd.Parameters.AddWithValue("@appId", random.Next(1, 1000)); // Генеруємо випадковий app_id
+                insertCmd.Parameters.AddWithValue("@app_name", GenerateRandomWord(random.Next(3, 35)));
+                insertCmd.Parameters.AddWithValue("@app_category", GenerateRandomWord(random.Next(50, 55))); // Генеруємо інші випадкові дані
+                insertCmd.ExecuteNonQuery();
+                insertCmd.Parameters.Clear();
             }
         }
     }
 
-    public void PopulateTestData()
+    static string GenerateRandomWord(int length)
     {
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        const string chars = "abcdefghijklmnopqrstuvwxyz";
+        Random random = new Random();
+        char[] wordChars = new char[length];
+
+        for (int i = 0; i < length; i++)
         {
-            connection.Open();
-
-            // Додайте ваші SQL запити для створення та заповнення таблиць тестовими даними
-            string createTableQuery = "CREATE TABLE TableName (ColumnName1 datatype, ColumnName2 datatype)";
-            string insertDataQuery = "INSERT INTO TableName (ColumnName1, ColumnName2) VALUES (@Value1, @Value2)";
-
-            using (SqlCommand command = new SqlCommand(createTableQuery, connection))
-            {
-                command.ExecuteNonQuery();
-            }
-
-            // Заповнення даними
-            for (int i = 0; i < 50; i++)
-            {
-                using (SqlCommand command = new SqlCommand(insertDataQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@Value1", $"Value{i}");
-                    command.Parameters.AddWithValue("@Value2", i);
-                    command.ExecuteNonQuery();
-                }
-            }
+            int index = random.Next(0, chars.Length);
+            wordChars[i] = chars[index];
         }
+
+        return new string(wordChars);
     }
+}
+
+
+
+
 }
