@@ -50,7 +50,8 @@ namespace ConsoleApp1
                                         (
                                             app_id INTEGER PRIMARY KEY,
                                             app_name TEXT,
-                                            app_category TEXT
+                                            app_category TEXT,
+                                            in_blacklist INTEGER DEFAULT 0
                                         )";
                 command.ExecuteNonQuery();
 
@@ -69,7 +70,7 @@ namespace ConsoleApp1
         public void FillApplicationTableWithRandomData()
         {
             OpenConnection(); 
-            using (var insertCmd = new SQLiteCommand("INSERT INTO application (app_id, app_name, app_category) VALUES (@appId, @app_name, @app_category)", _connection))
+            using (var insertCmd = new SQLiteCommand("INSERT INTO application (app_id, app_name, app_category, in_blacklist) VALUES (@appId, @app_name, @app_category, @in_blacklist)", _connection))
             {
                 var random = new Random();
 
@@ -92,6 +93,7 @@ namespace ConsoleApp1
                     insertCmd.Parameters.AddWithValue("@appId", newAppId);
                     insertCmd.Parameters.AddWithValue("@app_name", GenerateRandomAppName());
                     insertCmd.Parameters.AddWithValue("@app_category", GenerateRandomCategory()); 
+                    insertCmd.Parameters.AddWithValue("@in_blacklist", 0); 
                     insertCmd.ExecuteNonQuery();
                     insertCmd.Parameters.Clear();
                 }
@@ -176,9 +178,10 @@ namespace ConsoleApp1
                     int appId = reader.GetInt32(0);
                     string appName = reader.GetString(1);
                     string appCategory = reader.GetString(2);
+                    int inBlacklistInt = reader.GetInt32(3);
 
-                    
-                    string output = $"{appId} : {appName} from the category {appCategory}";
+
+                    string output = $"{appId} : {appName} from the category {appCategory}, {(inBlacklistInt ==1 ? "and is in blacklist" : "and is not in blacklist")}";
                     Console.WriteLine(output);
                 }
             }
@@ -219,10 +222,10 @@ namespace ConsoleApp1
                 manager.FillSessionsTableWithRandomData();
 
 
-                manager.PrintApplicationData();
                 manager.PrintSessionsData();
+                manager.PrintApplicationData();
 
-            }
+        }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
