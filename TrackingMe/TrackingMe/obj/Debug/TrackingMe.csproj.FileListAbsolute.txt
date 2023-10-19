@@ -80,3 +80,11 @@ D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackingMe\TrackingMe\bin
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\System.ValueTuple.xml
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackingMe\TrackingMe\obj\Debug\TrackingMe.csproj.CopyComplete
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\EntityFramework.dll
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\EntityFramework.SqlServer.dll
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\System.Data.SQLite.dll
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\System.Data.SQLite.EF6.dll
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\System.Data.SQLite.Linq.dll
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\EntityFramework.xml
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\EntityFramework.SqlServer.xml
+C:\github\PI_Project_2023\TrackingMe\TrackingMe\bin\Debug\System.Data.SQLite.xml
