@@ -125,19 +125,45 @@ namespace ConsoleApp1
             return appNames[random.Next(appNames.Count)];
         }
 
-        static string GenerateRandomWord(int length)
+        /*   static string GenerateRandomWord(int length)
+           {
+               const string chars = "abcdefghijklmnopqrstuvwxyz";
+               Random random = new Random();
+               char[] wordChars = new char[length];
+
+               for (int i = 0; i < length; i++)
+               {
+                   int index = random.Next(0, chars.Length);
+                   wordChars[i] = chars[index];
+               }
+
+               return new string(wordChars);
+           }*/
+        public void FillSessionsTableWithRandomData()
         {
-            const string chars = "abcdefghijklmnopqrstuvwxyz";
-            Random random = new Random();
-            char[] wordChars = new char[length];
-
-            for (int i = 0; i < length; i++)
+            OpenConnection(); 
+            using (var insertCmd = new SQLiteCommand("INSERT INTO sessions (app_id, start_time, end_time) VALUES (@appId, @start_time, @end_time)", _connection))
             {
-                int index = random.Next(0, chars.Length);
-                wordChars[i] = chars[index];
-            }
+                var random = new Random();
 
-            return new string(wordChars);
+                
+                DateTime startTime = DateTime.Now;
+                DateTime endTime = startTime.AddHours(random.Next(1, 5));
+
+                for (int i = 0; i < 30; i++) 
+                {
+                    insertCmd.Parameters.AddWithValue("@appId", random.Next(50, 1000)); // Generate a random app_id
+                    insertCmd.Parameters.AddWithValue("@start_time", startTime);
+                    insertCmd.Parameters.AddWithValue("@end_time", endTime);
+                    insertCmd.ExecuteNonQuery();
+                    insertCmd.Parameters.Clear();
+
+                    
+                    startTime = endTime.AddHours(random.Next(1, 5));
+                    endTime = startTime.AddHours(random.Next(1, 5));
+                }
+            }
+            CloseConnection(); 
         }
         public void PrintApplicationData()
         {
@@ -158,6 +184,26 @@ namespace ConsoleApp1
             }
             CloseConnection();
         }
+        public void PrintSessionsData()
+        {
+            OpenConnection();
+            using (var command = new SQLiteCommand("SELECT * FROM sessions", _connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int appId = reader.GetInt32(0);
+                    DateTime startTime = reader.GetDateTime(1);
+                    DateTime endTime = reader.GetDateTime(2);
+
+                    
+                    string output = $"App ID: {appId}, Start Time: {startTime}, End Time: {endTime}, use time: {endTime-startTime}";
+                    Console.WriteLine(output);
+                }
+            }
+            CloseConnection(); 
+        }
+
     }
     class Program
     {
@@ -169,8 +215,13 @@ namespace ConsoleApp1
                 SQLiteManager manager = new SQLiteManager(dbPath);
                 manager.CreateTables();
                 manager.EliminateData();
-                manager.FillApplicationTableWithRandomData(); 
-                manager.PrintApplicationData(); 
+                manager.FillApplicationTableWithRandomData();
+                manager.FillSessionsTableWithRandomData();
+
+
+                manager.PrintApplicationData();
+                manager.PrintSessionsData();
+
             }
             catch (Exception ex)
             {
