@@ -58,9 +58,11 @@ namespace ConsoleApp1
                 
                 command.CommandText = @"CREATE TABLE IF NOT EXISTS sessions
                                         (
-                                            app_id INTEGER,
+                                            session_id INTEGER PRIMARY KEY,
                                             start_time DATETIME,
-                                            end_time DATETIME
+                                            end_time DATETIME,
+                                            app_id INTEGER,
+                                            FOREIGN KEY (app_id) REFERENCES application(app_id)
                                         )";
                 command.ExecuteNonQuery();
             }
@@ -142,31 +144,43 @@ namespace ConsoleApp1
                return new string(wordChars);
            }*/
         public void FillSessionsTableWithRandomData()
+{
+    OpenConnection();
+    using (var insertCmd = new SQLiteCommand("INSERT INTO sessions (app_id, start_time, end_time) VALUES (@appId, @start_time, @end_time)", _connection))
+    {
+        var random = new Random();
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddHours(random.Next(1, 5));
+
+        for (int i = 0; i < 30; i++)
         {
-            OpenConnection(); 
-            using (var insertCmd = new SQLiteCommand("INSERT INTO sessions (app_id, start_time, end_time) VALUES (@appId, @start_time, @end_time)", _connection))
+            int newAppId;
+            bool uniqueIdFound = false;
+
+            do
             {
-                var random = new Random();
-
-                
-                DateTime startTime = DateTime.Now;
-                DateTime endTime = startTime.AddHours(random.Next(1, 5));
-
-                for (int i = 0; i < 30; i++) 
+                newAppId = random.Next(50, 1000);
+                using (var checkCmd = new SQLiteCommand("SELECT COUNT(*) FROM application WHERE app_id = @appId", _connection))
                 {
-                    insertCmd.Parameters.AddWithValue("@appId", random.Next(50, 1000)); // Generate a random app_id
-                    insertCmd.Parameters.AddWithValue("@start_time", startTime);
-                    insertCmd.Parameters.AddWithValue("@end_time", endTime);
-                    insertCmd.ExecuteNonQuery();
-                    insertCmd.Parameters.Clear();
-
-                    
-                    startTime = endTime.AddHours(random.Next(1, 5));
-                    endTime = startTime.AddHours(random.Next(1, 5));
+                    checkCmd.Parameters.AddWithValue("@appId", newAppId);
+                    uniqueIdFound = (long)checkCmd.ExecuteScalar() == 0;
                 }
-            }
-            CloseConnection(); 
+            } while (!uniqueIdFound);
+
+            insertCmd.Parameters.AddWithValue("@appId", newAppId);
+            insertCmd.Parameters.AddWithValue("@start_time", startTime);
+            insertCmd.Parameters.AddWithValue("@end_time", endTime);
+            insertCmd.ExecuteNonQuery();
+            insertCmd.Parameters.Clear();
+
+            startTime = endTime.AddHours(random.Next(1, 5));
+            endTime = startTime.AddHours(random.Next(1, 5));
         }
+    }
+    CloseConnection();
+}
+
         public void PrintApplicationData()
         {
             OpenConnection();
@@ -214,7 +228,7 @@ namespace ConsoleApp1
         {
             try
             {
-                string dbPath = "your_db_path.db"; 
+                string dbPath = "Trackme_DB.db"; 
                 SQLiteManager manager = new SQLiteManager(dbPath);
                 manager.CreateTables();
                 manager.EliminateData();
@@ -225,7 +239,7 @@ namespace ConsoleApp1
                 manager.PrintSessionsData();
                 manager.PrintApplicationData();
 
-        }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
