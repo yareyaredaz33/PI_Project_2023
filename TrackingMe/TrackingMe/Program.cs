@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using static Npgsql.Replication.PgOutput.Messages.RelationMessage;
+using System.Diagnostics.Metrics;
 
 namespace ConsoleApp1
 {
@@ -45,24 +47,28 @@ namespace ConsoleApp1
             OpenConnection();
             using (var command = new SQLiteCommand(_connection))
             {
-                
+               // command.CommandText = @"ALTER TABLE application
+               // RENAME COLUMN app_id TO app_ref;";
+               // command.ExecuteNonQuery();
                 command.CommandText = @"CREATE TABLE IF NOT EXISTS application
                                         (
-                                            app_id INTEGER PRIMARY KEY NOT NULL,
+                                            app_ref INTEGER PRIMARY KEY NOT NULL,
                                             app_name TEXT NOT NULL,
                                             app_category TEXT NOT NULL,
                                             in_blacklist INTEGER DEFAULT 0
                                         )";
                 command.ExecuteNonQuery();
 
-                
-                command.CommandText = @"CREATE TABLE IF NOT EXISTS sessions
+                // command.CommandText = @"ALTER TABLE sessions
+                // RENAME COLUMN app_id TO app_ref;";
+                // command.ExecuteNonQuery();
+                 command.CommandText = @"CREATE TABLE IF NOT EXISTS sessions
                                         (
                                             session_id INTEGER PRIMARY KEY NOT NULL,
                                             start_time DATETIME NOT NULL,
                                             end_time DATETIME NOT NULL,
-                                            app_id INTEGER NOT NULL,
-                                            FOREIGN KEY (app_id) REFERENCES application(app_id)
+                                            app_ref INTEGER NOT NULL,
+                                            FOREIGN KEY (app_ref) REFERENCES application(app_ref)
                                         )";
                 command.ExecuteNonQuery();
             }
@@ -72,27 +78,27 @@ namespace ConsoleApp1
         public void FillApplicationTableWithRandomData()
         {
             OpenConnection(); 
-            using (var insertCmd = new SQLiteCommand("INSERT INTO application (app_id, app_name, app_category, in_blacklist) VALUES (@appId, @app_name, @app_category, @in_blacklist)", _connection))
+            using (var insertCmd = new SQLiteCommand("INSERT INTO application (app_ref, app_name, app_category, in_blacklist) VALUES (@appRef, @app_name, @app_category, @in_blacklist)", _connection))
             {
                 var random = new Random();
 
                 for (int i = 0; i < 30; i++) 
                 {
-                    int newAppId;
+                    int newAppRef;
                     bool uniqueIdFound = false;
 
                     do
                     {
-                        newAppId = random.Next(1, 40); 
-                        using (var checkCmd = new SQLiteCommand("SELECT COUNT(*) FROM application WHERE app_id = @appId", _connection))
+                        newAppRef = random.Next(1, 40); 
+                        using (var checkCmd = new SQLiteCommand("SELECT COUNT(*) FROM application WHERE app_ref = @appRef", _connection))
                         {
-                            checkCmd.Parameters.AddWithValue("@appId", newAppId);
+                            checkCmd.Parameters.AddWithValue("@appRef", newAppRef);
                             uniqueIdFound = (long)checkCmd.ExecuteScalar() == 0;
                         }
                     } while (!uniqueIdFound);
 
                     
-                    insertCmd.Parameters.AddWithValue("@appId", newAppId);
+                    insertCmd.Parameters.AddWithValue("@appRef", newAppRef);
                     insertCmd.Parameters.AddWithValue("@app_name", GenerateRandomAppName());
                     insertCmd.Parameters.AddWithValue("@app_category", GenerateRandomCategory()); 
                     insertCmd.Parameters.AddWithValue("@in_blacklist", 0); 
@@ -145,41 +151,41 @@ namespace ConsoleApp1
            }*/
         public void FillSessionsTableWithRandomData()
         {
-        OpenConnection();
-        using (var insertCmd = new SQLiteCommand("INSERT INTO sessions (app_id, start_time, end_time) VALUES (@appId, @start_time, @end_time)", _connection))
-        {
-             var random = new Random();
-
-            DateTime startTime = DateTime.Now;
-            DateTime endTime = startTime.AddHours(random.Next(1, 5));
-
-            for (int i = 0; i < 30; i++)
+            OpenConnection();
+            using (var insertCmd = new SQLiteCommand("INSERT INTO sessions (start_time, end_time, app_ref) VALUES (@start_time, @end_time, @appRef)", _connection))
             {
-                int newAppId;
-                bool uniqueIdFound = false;
+                var random = new Random();
 
-                do
+                DateTime startTime = DateTime.Now;
+                DateTime endTime = startTime.AddHours(random.Next(1, 5));
+
+                for (int i = 0; i < 30; i++)
                 {
-                    newAppId = random.Next(1, 40);
-                    using (var checkCmd = new SQLiteCommand("SELECT COUNT(*) FROM application WHERE app_id = @appId", _connection))
+                    int newAppRef;
+                    bool uniqueIdFound = false;
+
+                    do
                     {
-                        checkCmd.Parameters.AddWithValue("@appId", newAppId);
-                        uniqueIdFound = (long)checkCmd.ExecuteScalar() == 0;
-                    }
-                } while (!uniqueIdFound);
+                        newAppRef = random.Next(1, 40);
+                        using (var checkCmd = new SQLiteCommand("SELECT COUNT(*) FROM application WHERE app_ref = @appRef", _connection))
+                        {
+                            checkCmd.Parameters.AddWithValue("@appRef", newAppRef);
+                            uniqueIdFound = (long)checkCmd.ExecuteScalar() == 0;
+                        }
+                    } while (!uniqueIdFound);
 
-                insertCmd.Parameters.AddWithValue("@appId", newAppId);
-                insertCmd.Parameters.AddWithValue("@start_time", startTime);
-                insertCmd.Parameters.AddWithValue("@end_time", endTime);
-                insertCmd.ExecuteNonQuery();
-                insertCmd.Parameters.Clear();
+                    insertCmd.Parameters.AddWithValue("@start_time", startTime);
+                    insertCmd.Parameters.AddWithValue("@end_time", endTime);
+                    insertCmd.Parameters.AddWithValue("@appRef", newAppRef);
+                    insertCmd.ExecuteNonQuery();
+                    insertCmd.Parameters.Clear();
 
-                startTime = endTime.AddHours(random.Next(1, 5));
-                endTime = startTime.AddHours(random.Next(1, 5));
+                    startTime = endTime.AddHours(random.Next(1, 5));
+                    endTime = startTime.AddHours(random.Next(1, 5));
                 }
             }
-        CloseConnection();
-         }
+            CloseConnection();
+        }
 
         public void PrintApplicationData()
         {
@@ -209,12 +215,12 @@ namespace ConsoleApp1
             {
                 while (reader.Read())
                 {
-                    int appId = reader.GetInt32(0);
+                    int appRef = reader.GetInt32(0);
                     DateTime startTime = reader.GetDateTime(1);
                     DateTime endTime = reader.GetDateTime(2);
 
-                    
-                    string output = $"App ID: {appId}, Start Time: {startTime}, End Time: {endTime}, use time: {endTime-startTime}";
+
+                    string output = $"App REF: {appRef}, Start Time: {startTime}, End Time: {endTime}, use time: {endTime-startTime}";
                     Console.WriteLine(output);
                 }
             }
