@@ -16,19 +16,27 @@ using System.Windows.Shapes;
 namespace TrackMe
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Registration1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Registration1 : Page
     {
-        public MainWindow()
+        public Registration1()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Registration1());
-            button.Visibility = Visibility.Collapsed;
 
+        }
+
+        private void Button_Click_back_to_mainWindow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_popup(object sender, RoutedEventArgs e)
+        {
 
         }
     }
