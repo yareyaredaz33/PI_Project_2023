@@ -28,7 +28,14 @@ namespace TrackMe
         {
             mainFrame.Navigate(new Registration1());
             button.Visibility = Visibility.Collapsed;
+            TrackMelogo.Visibility = Visibility.Collapsed;
 
+
+
+        }
+
+        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
 
         }
     }

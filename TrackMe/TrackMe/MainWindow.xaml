@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrackMe"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="1440">
+        mc:Ignorable="d" 
+       d:DesignHeight="1024" d:DesignWidth="1440"
+        Title="MainWindow" Height="800" Width="1000">
     <Grid Background="#FFF">
         <Grid>
-            <TextBlock Text="ласкаво просимо до " HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.44,2.091" Margin="0,80,0,0" FontFamily="Cascadia Code Light"/>
+            <TextBlock Text="ласкаво просимо до " HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.44,2.091" Margin="0,50 ,0,0" FontFamily="Cascadia Code Light"/>
         </Grid>
 
-        <Frame Name="mainFrame" NavigationUIVisibility="Hidden"/>
+        <Frame Name="mainFrame" NavigationUIVisibility="Hidden" Navigated="mainFrame_Navigated"/>
 
         <Button x:Name="button" Width="516" Height="187" Click ="Button_Click"  HorizontalAlignment="Center" VerticalAlignment="Center">
 
@@ -32,20 +33,29 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Margin="560,159,560,772" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+
+        <Button x:Name="TrackMelogo" Width="250" Height="60"  HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="350,100,350,571">
+
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270"/>
                         </Border.Effect>
                         <Grid>
-                            <TextBlock Text="TrackMe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+                            <TextBlock  Text="TrackMe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Foreground ="Black" FontFamily="Cascadia Code Light">
+						
+                            </TextBlock>
                         </Grid>
                     </Border>
                 </ControlTemplate>
             </Button.Template>
         </Button>
+
+       
+
+        
     </Grid>
+
 </Window>
 
