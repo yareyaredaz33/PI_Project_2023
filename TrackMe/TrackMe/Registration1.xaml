@@ -44,7 +44,7 @@
         </Button>
 
 
-        <Button  Width="300" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,574,0,0">
+        <Button  Width="300" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,576,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
@@ -72,10 +72,37 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock Text="TrackMe" HorizontalAlignment="Center" FontFamily="Cascadia Mono Light" Foreground="Black" VerticalAlignment="Center" FontSize="30" Margin="70,100,712,640" />
+        <TextBlock Text="TrackMe" HorizontalAlignment="Center" FontFamily="Cascadia Mono Light" Foreground="White" VerticalAlignment="Center" FontSize="30" Margin="70,100,712,640" />
 
 
-     
+
+
+        <!-- Your main content here -->
+        <Button Margin="607,597,365,170" Content="\/" Click="OpenPopup_Click" RenderTransformOrigin="0.671,0.502"  >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10" Background="#E5CCFF" BorderThickness="4" BorderBrush="#FFF">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270"/>
+                        </Border.Effect>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <!-- Popup Control -->
+        <Popup x:Name="myPopup" Placement="MousePoint" IsOpen="False" StaysOpen="False" Margin="0, 676,0,0"  >
+            <!-- Your pop-up content here -->
+            <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF" >
+
+                <TextBlock Text="This is a pop-up!" Padding="10" Margin="100, 0,0,0"/>
+            </Border>
+
+        
+        </Popup>
+
+       
 
         <TextBlock Text="це дитячий акаунт" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" RenderTransformOrigin="0.44,2.091" Margin="10,709,10,10" FontFamily="Cascadia Code Light"/>
 

@@ -35,9 +35,11 @@ namespace TrackMe
 
         }
 
-        private void Button_Click_popup(object sender, RoutedEventArgs e)
+        private void OpenPopup_Click(object sender, RoutedEventArgs e)
         {
 
         }
+       
+        
     }
 }
