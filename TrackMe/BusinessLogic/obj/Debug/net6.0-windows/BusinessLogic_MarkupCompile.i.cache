@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Pi_project\PI_Project_2023\TrackMe\BusinessLogic\obj\Debug\net6.0-windows\
+C:\github\PI_Project_2023\TrackMe\BusinessLogic\obj\Debug\net6.0-windows\
 BusinessLogic
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Pi_project\PI_Project_2023\TrackMe\BusinessLogic\App.xaml
+C:\github\PI_Project_2023\TrackMe\BusinessLogic\App.xaml
 11407045341
 
 6-1722488747
-214-1726120517
+216-554279158
 MainWindow.xaml;
 
-False
+True
 

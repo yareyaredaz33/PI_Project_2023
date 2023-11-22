@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Pi_project\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\
+C:\github\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\
 DataLogic
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Pi_project\PI_Project_2023\TrackMe\DataLogic\App.xaml
+C:\github\PI_Project_2023\TrackMe\DataLogic\App.xaml
 11407045341
 
 6-1916673631
-212-1152743030
+212-236486677
 MainWindow.xaml;
 
-False
+True
 

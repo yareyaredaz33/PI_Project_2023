@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Pi_project\PI_Project_2023\TrackMe\TrackMe\obj\Debug\net6.0-windows\
-TrackMe
+C:\github\PI_Project_2023\TrackMe\TrackMe\obj\Debug\net6.0-windows\
+TrackMe_j0szbsdn_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Pi_project\PI_Project_2023\TrackMe\TrackMe\App.xaml
-11407045341
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+C:\github\PI_Project_2023\TrackMe\TrackMe\App.xaml
+21656363943
 
-3-1233169557
-194-1797456590
-MainWindow.xaml;
+71392482465
+392956533548
+MainWindow.xaml;Registration1.xaml;
 
 False
 
