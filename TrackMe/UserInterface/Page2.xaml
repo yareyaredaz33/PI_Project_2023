@@ -10,7 +10,7 @@
        Height="1024" Width="1440"
       Title="Page2">
 
-    <Grid Background="#FFF" Margin="146,-146,-146,146">
+    <Grid Background="#FFF">
         <!-- Rectangle 1 -->
         <Rectangle Fill="#ae9dbf" Margin="0,0,1072,0" />
 

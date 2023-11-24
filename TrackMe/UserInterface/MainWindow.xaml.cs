@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UserInterface
+namespace TrackMe
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,20 @@ namespace UserInterface
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new UserInterface.MainPage());
+            button.Visibility = Visibility.Collapsed;
+            TrackMelogo.Visibility = Visibility.Collapsed;
+
+
+
+        }
+
+        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }

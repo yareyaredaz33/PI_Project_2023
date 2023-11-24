@@ -3,12 +3,10 @@
     "",
     "\\BusinessLogic",
     "\\DataAccessLayer",
-    "\\TrackingMe",
-    "\\TrackingMe\\TrackingMe",
     "\\TrackMe",
     "\\TrackMe\\TrackMe",
     "\\TrackMe\\UserInterface"
   ],
-  "SelectedNode": "\\TrackMe\\UserInterface\\Program.cs",
+  "SelectedNode": "\\TrackMe\\UserInterface\\App.xaml",
   "PreviewInSolutionExplorer": false
 }

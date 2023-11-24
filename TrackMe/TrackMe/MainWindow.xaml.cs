@@ -22,11 +22,11 @@ namespace TrackMe
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new Registration1());
+            mainFrame.Navigate(new UserInterface.MainPage());
             button.Visibility = Visibility.Collapsed;
             TrackMelogo.Visibility = Visibility.Collapsed;
 

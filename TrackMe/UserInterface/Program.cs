@@ -1,8 +1,8 @@
-﻿// MyApp.UI/Program.cs
+﻿/*// MyApp.UI/Program.cs
 using System;
 using TrackMe.DataLogic;// Use the correct namespace for UserService
 using TrackMe.BLL; // Use the correct namespace for MyDBLogic
-
+using TrackMe;
 namespace MyApp.UI
 {
     class Program
@@ -23,4 +23,4 @@ namespace MyApp.UI
             }
         }
     }
-}
+}*/

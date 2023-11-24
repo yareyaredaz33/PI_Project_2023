@@ -5,15 +5,15 @@ winexe
 C#
 .cs
 C:\github\PI_Project_2023\TrackMe\TrackMe\obj\Debug\net6.0-windows\
-TrackMe_j0szbsdn_wpftmp
+TrackMe
 none
 false
-TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\github\PI_Project_2023\TrackMe\TrackMe\App.xaml
 21656363943
 
-71392482465
-392956533548
+41412228711
+2221318585748
 MainWindow.xaml;Registration1.xaml;
 
 False

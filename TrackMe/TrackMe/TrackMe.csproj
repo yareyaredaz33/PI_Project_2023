@@ -11,4 +11,10 @@
     <PackageReference Include="WPF-UI" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\DataLogic\DataLogic.csproj" />
+    <ProjectReference Include="..\UserInterface\UserInterface.csproj" />
+  </ItemGroup>
+
 </Project>
