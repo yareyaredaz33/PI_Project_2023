@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "06ihrvBKQyDrqgrfJarx5A7m6GI4z/pxCXF1vuuiMw7LL9uP8+v0kQRgyyh5IQp0WtVONJVxbVuJfjrxHJW0XQ==",
+  "dgSpecHash": "+n9bNoNyEozP/evOh9OM0Aur9z6PicojyVPziFy6dqWZWeXeN+7kDQsUFXkFP7vbkpe6mswTjYFtTfROSjXzOA==",
   "success": true,
   "projectFilePath": "C:\\github\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.13\\microsoft.data.sqlite.core.7.0.13.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.13\\microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",

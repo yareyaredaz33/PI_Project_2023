@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VkXrK9HecYM53h9DfVbJYuweOwzUmhcZjdcvp1SkdtgAWFRtgYEDRIaci1AHQSVjP4+D/FVUcKt46GExnWllPA==",
+  "dgSpecHash": "C3UNkbNA7t2f5xFw7KrROlGUckLKKd+aWOzLWVjFvTvQvow6bOTNW9ezgeZ4u/f1PjSc3RqcFgx92YV3r6IXQg==",
   "success": true,
   "projectFilePath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512"
   ],
   "logs": []
 }

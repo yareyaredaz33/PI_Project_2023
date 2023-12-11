@@ -44,3 +44,4 @@ C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\UserInt
 C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\ref\UserInterface.dll
 C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\UserInterface.pdb
 C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\UserInterface.genruntimeconfig.cache
+C:\github\PI_Project_2023\TrackMe\UserInterface\bin\Debug\net6.0-windows\Hardcodet.NotifyIcon.Wpf.dll

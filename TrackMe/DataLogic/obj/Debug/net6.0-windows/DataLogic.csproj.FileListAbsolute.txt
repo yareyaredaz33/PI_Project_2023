@@ -67,3 +67,4 @@ C:\github\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\DataLogic.d
 C:\github\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\ref\DataLogic.dll
 C:\github\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\DataLogic.pdb
 C:\github\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\DataLogic.genruntimeconfig.cache
+C:\github\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\Hardcodet.NotifyIcon.Wpf.dll

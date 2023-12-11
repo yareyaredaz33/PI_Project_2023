@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MqNlMQGUqzeMIijYOTm8g9CwZTnm/tpD+agkUYaJrVsgiMH6QH2PqJ5MhCJqZfrntiS9Alt0bs6r7jakqF24wQ==",
+  "dgSpecHash": "DNDi0masM7TAh3u4CZWqPRo4tSmSiB674e3CKWPx+geko/pRyj4KJiYkqMog4hLWAFZE5h+SsqLOxfznV3/prQ==",
   "success": true,
   "projectFilePath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.13\\microsoft.data.sqlite.core.7.0.13.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.13\\microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",

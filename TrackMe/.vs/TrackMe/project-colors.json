@@ -20,6 +20,11 @@
       "ProjectGuid": "198cb6b0-c2a2-4483-a05f-10a0a92ba331",
       "DisplayName": "TrackMe",
       "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 4

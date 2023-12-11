@@ -47,6 +47,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Hardcodet.NotifyIcon.Wpf": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -109,6 +115,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "Hardcodet.NotifyIcon.Wpf": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.13, )"
@@ -198,6 +208,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "Hardcodet.NotifyIcon.Wpf": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "WPF-UI": {
               "target": "Package",
               "version": "[2.1.0, )"
@@ -268,6 +282,10 @@
             "Extended.Wpf.Toolkit": {
               "target": "Package",
               "version": "[4.5.1, )"
+            },
+            "Hardcodet.NotifyIcon.Wpf": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             }
           },
           "imports": [

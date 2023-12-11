@@ -67,6 +67,14 @@
             "locale": "zh-Hans"
           }
         }
+      },
+      "Hardcodet.NotifyIcon.Wpf/1.1.0": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Hardcodet.NotifyIcon.Wpf.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.17"
+          }
+        }
       }
     }
   },
@@ -77,6 +85,13 @@
       "sha512": "sha512-Z0AL4oOORLZsKUediAaXOVt+nQI8owUcv05RDuoup0JaS96cqN/2zeIVr2TLX5oDK6VOrm1NkJKV1zrQCj3Deg==",
       "path": "extended.wpf.toolkit/4.5.1",
       "hashPath": "extended.wpf.toolkit.4.5.1.nupkg.sha512"
+    },
+    "Hardcodet.NotifyIcon.Wpf/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FFEkdRSidMrbMfQVwhCzq6KtSyR1qQojqtiUrkCyjnOOuMf7W3TNQkzFnBBxYxFe7uLk5mz7M38wFh1qdWyfvg==",
+      "path": "hardcodet.notifyicon.wpf/1.1.0",
+      "hashPath": "hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512"
     }
   }
 }

@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "Hardcodet.NotifyIcon.Wpf/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/Hardcodet.NotifyIcon.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Hardcodet.NotifyIcon.Wpf.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
       "Microsoft.Data.Sqlite.Core/7.0.13": {
         "type": "package",
         "dependencies": {
@@ -476,6 +488,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Hardcodet.NotifyIcon.Wpf": "1.1.0",
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.13",
           "SQLite": "3.13.0",
@@ -494,6 +507,29 @@
     }
   },
   "libraries": {
+    "Hardcodet.NotifyIcon.Wpf/1.1.0": {
+      "sha512": "FFEkdRSidMrbMfQVwhCzq6KtSyR1qQojqtiUrkCyjnOOuMf7W3TNQkzFnBBxYxFe7uLk5mz7M38wFh1qdWyfvg==",
+      "type": "package",
+      "path": "hardcodet.notifyicon.wpf/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
+        "hardcodet.notifyicon.wpf.nuspec",
+        "icon.png",
+        "lib/net45/Hardcodet.NotifyIcon.Wpf.dll",
+        "lib/net45/Hardcodet.NotifyIcon.Wpf.xml",
+        "lib/net462/Hardcodet.NotifyIcon.Wpf.dll",
+        "lib/net462/Hardcodet.NotifyIcon.Wpf.xml",
+        "lib/net472/Hardcodet.NotifyIcon.Wpf.dll",
+        "lib/net472/Hardcodet.NotifyIcon.Wpf.xml",
+        "lib/net5.0-windows7.0/Hardcodet.NotifyIcon.Wpf.dll",
+        "lib/net5.0-windows7.0/Hardcodet.NotifyIcon.Wpf.xml",
+        "lib/netcoreapp3.1/Hardcodet.NotifyIcon.Wpf.dll",
+        "lib/netcoreapp3.1/Hardcodet.NotifyIcon.Wpf.xml"
+      ]
+    },
     "Microsoft.Data.Sqlite.Core/7.0.13": {
       "sha512": "acRUY0iRrdIrhUXxu9GnonxV9P3VIeMnpnmHoY9vE9D5CAJeThro7vr63urSD0Qmav2gS2sxNAQ/NkP09OZJBQ==",
       "type": "package",
@@ -1183,7 +1219,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "DataLogic >= 1.0.0"
+      "DataLogic >= 1.0.0",
+      "Hardcodet.NotifyIcon.Wpf >= 1.1.0"
     ]
   },
   "packageFolders": {
@@ -1233,6 +1270,12 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "Hardcodet.NotifyIcon.Wpf": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
