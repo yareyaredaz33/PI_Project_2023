@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VkXrK9HecYM53h9DfVbJYuweOwzUmhcZjdcvp1SkdtgAWFRtgYEDRIaci1AHQSVjP4+D/FVUcKt46GExnWllPA==",
+  "dgSpecHash": "H9UF97WL4ELmAgGt68yKYGPvJag2xr+Blk4XVnMMTZbFR/7SxvLZddzRoNDcoltQ3ugawIGl59hVyBrieq+Dqw==",
   "success": true,
-  "projectFilePath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
+  "projectFilePath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512"
+    "C:\\Users\\Галина\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\
+C:\Users\Галина\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\
 UserInterface
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\github\PI_Project_2023\TrackMe\UserInterface\App.xaml
-4-295448201
+C:\Users\Галина\PI_Project_2023\TrackMe\UserInterface\App.xaml
+61524662779
 
-9335059175
-1991513996156
-MainPage.xaml;MainWindow.xaml;Page1.xaml;Page2.xaml;
+11-2119215414
+199294471518
+MainPage.xaml;MainWindow.xaml;Page1.xaml;Page2.xaml;Profile.xaml;Settings.xaml;
 
-True
+False
 
