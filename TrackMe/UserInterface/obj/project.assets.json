@@ -117,28 +117,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Галина\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
+      "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
       "projectName": "UserInterface",
-      "projectPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
-      "packagesPath": "C:\\Users\\Галина\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\UserInterface\\obj\\",
+      "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Галина\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -171,8 +171,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -184,7 +183,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
