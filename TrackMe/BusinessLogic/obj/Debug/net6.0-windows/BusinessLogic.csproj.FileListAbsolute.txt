@@ -150,3 +150,6 @@ D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\obj
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\obj\Debug\net6.0-windows\BusinessLogic.pdb
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\obj\Debug\net6.0-windows\BusinessLogic.genruntimeconfig.cache
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\obj\Debug\net6.0-windows\ref\BusinessLogic.dll
+D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\bin\Debug\net6.0-windows\Npgsql.dll
+D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\BusinessLogic\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll

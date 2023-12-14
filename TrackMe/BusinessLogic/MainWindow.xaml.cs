@@ -10,10 +10,17 @@ namespace TrackMe
 {
     public partial class MainWindow : Window
     {
+        private TrackMe.DataLogic.MyDBLogic dbLogicInstance;
+
+
+
         public MainWindow()
         {
+            dbLogicInstance = new TrackMe.DataLogic.MyDBLogic(AppDomain.CurrentDomain.BaseDirectory);
+            TrackMe.DataLogic.MyDBLogic.SetInstance(dbLogicInstance);  // Pass the instance
             InitializeComponent();
             GetOpenApplications();
+            dbLogicInstance.PrintTableNames(); // Call the method to print table names
         }
 
         private void GetOpenApplications()
@@ -48,6 +55,20 @@ namespace TrackMe
 
                         // Add the process information to your ListView
                         listView.Items.Add(processInfo);
+
+                        dbLogicInstance.AddProcessInfoToDatabase(processInfo.ProcessName, processInfo.ProcessId);
+
+                        // Print application information to the ListView
+                        listView.Items.Add(processInfo);
+
+                        // Print table names to the TextBox
+                        var tableNames = dbLogicInstance.GetTableNames();
+                        tableNameTextBox.AppendText("Table Names:\n");
+                        foreach (var tableName in tableNames)
+                        {
+                            tableNameTextBox.AppendText($"{tableName}\n");
+                        }
+                        tableNameTextBox.AppendText("\nTest Message");
                     }
                 }
             }

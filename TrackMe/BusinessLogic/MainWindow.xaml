@@ -11,5 +11,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox x:Name="tableNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="150" Margin="0,300,0,0"/>
     </Grid>
 </Window>
