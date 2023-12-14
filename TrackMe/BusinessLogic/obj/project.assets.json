@@ -1448,11 +1448,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
+      "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
       "projectName": "BusinessLogic",
-      "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
+      "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
       "packagesPath": "C:\\Users\\Данило\\.nuget\\packages\\",
-      "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\obj\\",
+      "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Данило\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1469,8 +1469,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
-              "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
+            "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+              "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
             }
           }
         }

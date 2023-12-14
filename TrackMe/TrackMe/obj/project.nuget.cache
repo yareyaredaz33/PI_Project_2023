@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0kSEuV8dT0S5Ewew9BAa+AIuCfkq1SKtjFDgASHJAZGI/f2OBBfYkvgqaL25jZmxpfVFDRn157BSeqNZriQSdQ==",
+  "dgSpecHash": "H8AUa/wuK2YfCNMr+LO0qUj2FM5w7jKyfUT5T3fPh2k4CXblj8aFiA4DC14xbPBa7mvyymGng6xTkRgI393H7g==",
   "success": true,
-  "projectFilePath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
+  "projectFilePath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Данило\\.nuget\\packages\\extended.wpf.toolkit\\4.5.1\\extended.wpf.toolkit.4.5.1.nupkg.sha512",
     "C:\\Users\\Данило\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.0\\microsoft.data.sqlite.core.8.0.0.nupkg.sha512",

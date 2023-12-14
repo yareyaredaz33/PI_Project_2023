@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {}
+    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {}
   },
   "projects": {
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+        "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
         "projectName": "DataLogic",
-        "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+        "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
         "packagesPath": "C:\\Users\\Данило\\.nuget\\packages\\",
-        "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\obj\\",
+        "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Данило\\AppData\\Roaming\\NuGet\\NuGet.Config",

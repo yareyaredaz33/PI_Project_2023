@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zl9m/9MEZZm34kysYgOTYgqpKy3wFx/XyrQJhtQ8JObDPia41h432Vv76JtMuMcwVGLF6qEPWQdnQE+n2uD7yg==",
+  "dgSpecHash": "b4Wcw9uk53k+AfRPxxKq5TxujBmaFAFTpQ0jCuvRHEn2sT34ySX3p3Pam4hiQNlKcFQHkdcY1EYcl03LnabPUg==",
   "success": true,
-  "projectFilePath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+  "projectFilePath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI_PROJECT_HELP\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Данило\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.0\\microsoft.data.sqlite.core.8.0.0.nupkg.sha512",
     "C:\\Users\\Данило\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
