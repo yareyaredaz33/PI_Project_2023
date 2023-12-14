@@ -8,9 +8,11 @@
        d:DesignHeight="1024" d:DesignWidth="1440"
         Title="MainWindow" Height="1024" Width="1440">
     <Grid Background="#FFF">
-       
-        <Frame Name="mainFrame" NavigationUIVisibility="Hidden" />
-        <Grid/>
+        <Grid>
+            <TextBlock Text="ласкаво просимо до " HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40" RenderTransformOrigin="0.44,2.091" Margin="0,50 ,0,0" FontFamily="Cascadia Code Light"/>
+        </Grid>
+
+        <Frame Name="mainFrame" NavigationUIVisibility="Hidden" Navigated="mainFrame_Navigated"/>
 
         <Button x:Name="button" Width="516" Height="187" Click ="Button_Click"  HorizontalAlignment="Center" VerticalAlignment="Center">
 

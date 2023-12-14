@@ -53,7 +53,7 @@ namespace UserInterface {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;component/profile.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/profile.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Profile.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
