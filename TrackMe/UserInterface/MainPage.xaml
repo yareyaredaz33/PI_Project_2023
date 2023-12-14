@@ -3,61 +3,200 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:UserInterface"
-     
+
       
       mc:Ignorable="d" 
        Height="1024" Width="1440"
       Title="Page2">
+    <Page.Resources>
 
-    <Grid Background="#FFF" >
-        <!-- Rectangle 1 -->
+        <Style x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="32" />
+                            </Grid.ColumnDefinitions>
+                            <Border
+                          x:Name="Border"
+                          Grid.ColumnSpan="2"
+                          CornerRadius="8"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="#F6F6F6"
+                          BorderThickness="1" 
+                        />
+
+                            <Path
+                            x:Name="Arrow"
+                            Grid.Column="1"    
+                            Fill="{TemplateBinding Foreground}"
+                            Stroke="{TemplateBinding Foreground}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="M 0 0 L 4 4 L 8 0 Z"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost" Focusable="True" />
+        </ControlTemplate>
+
+        <Style x:Key="theComboBox" TargetType="{x:Type ComboBox}">
+            <Setter Property="Foreground" Value="#333" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton
+                            Cursor="Hand"
+                            x:Name="ToggleButton"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Style="{StaticResource ComboBoxToggleButton}"
+                            Grid.Column="2"
+                            Focusable="false"
+                            IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press"/>
+
+
+                            <ContentPresenter
+                            x:Name="ContentSite"
+                            IsHitTestVisible="False"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            Margin="10,3,30,3"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}"
+                            Template="{StaticResource ComboBoxTextBox}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Margin="3,3,23,3"
+                            Focusable="True"                               
+                            Visibility="Hidden"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup
+                            x:Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True"
+                            Focusable="False"
+                            PopupAnimation="Slide">
+                                <Grid
+                              x:Name="DropDown"
+                              SnapsToDevicePixels="True"               
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border
+                                    CornerRadius="8"
+                                    x:Name="DropDownBorder"
+                                    Background="White"
+                                    BorderThickness="1"
+                                    BorderBrush="#F6F6F6"
+                                    />
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable" Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="theComboBoxItem" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border
+                        x:Name="Border"
+                        Padding="5"
+                        Margin="2"
+                        BorderThickness="2,0,0,0"
+                        CornerRadius="0"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                            <TextBlock TextAlignment="Left"><InlineUIContainer>
+                                    <ContentPresenter />
+                                </InlineUIContainer></TextBlock>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#FFAD8AD0"/>
+                                <Setter TargetName="Border" Property="Background" Value="#E5CCFF"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#FFF5F0F9" >
+
+
+        <ComboBox 
+    FontSize="25"
+    Style="{DynamicResource theComboBox}"
+    Padding="15,5,15,5"
+    HorizontalContentAlignment="Left"
+    VerticalAlignment="Top"
+    MinWidth="100"
+    MaxWidth="400"
+    ItemContainerStyle="{DynamicResource theComboBoxItem}" Margin="410,17,606,0" Height="64" RenderTransformOrigin="0.499,0.493" Background="#FFB099BF"  Width="400"
+>
+            <ComboBoxItem Content="статистика за день"/>
+            <ComboBoxItem Content="статистика за 7 днів"/>
+            <ComboBoxItem Content="статистика за 30 днів"/>
+
+            <ComboBoxItem Content="статистика за вибраний період"/>
+
+        </ComboBox>
         <Rectangle Fill="#ae9dbf" Margin="0,0,1072,0" />
 
         <!-- Rectangle 3 -->
         <!-- Rectangle 2 -->
-        <Border x:Name="Rectangle2"  Width="409" Height="53" Background="#ae9dbf" BorderBrush="#000000" BorderThickness="1" CornerRadius="20" Margin="410,22,621,949">
-            <!-- Your content for Rectangle 2 goes here -->
-        </Border>
-
-        <!-- Rectangle 11 -->
-        <Border x:Name="Rectangle11"  Width="46" Height="34" Background="#FFFFFF" BorderThickness="0" CornerRadius="20" Margin="752,32,642,958">
-            <!-- Your content for Rectangle 11 goes here -->
-        </Border>
-
-        <!-- статистика за день -->
-        <TextBlock x:Name="StatisticsTextBlock" Text="Your Text Here"  Width="341" Height="36" FontFamily="Jura" FontStyle="Normal" FontSize="32" LineHeight="38" Foreground="#000000" Margin="434,30,665,958"/>
 
         <!-- Group 5 -->
-        <Border x:Name="Group5"  Width="20" Height="20"  RenderTransformOrigin="0.5,0.5" Margin="604,38,816,966">
-            <Border.RenderTransform>
-                <RotateTransform Angle="-45"/>
-            </Border.RenderTransform>
-            <!-- Your content for Group 5 goes here -->
-        </Border>
 
-        <!-- Rectangle 17 -->
-        <Border x:Name="Rectangle17"  Width="5" Height="20"  Background="#D9D9D9" RenderTransformOrigin="0.5,0.5" Margin="772,38,663,966">
-            <Border.RenderTransform>
-                <RotateTransform Angle="-45"/>
-            </Border.RenderTransform>
-        </Border>
-
-        <!-- Rectangle 18 -->
-        <Border x:Name="Rectangle18"  Width="5" Height="20"  Background="#D9D9D9" RenderTransformOrigin="0.5,0.5" Margin="772,38,663,966">
-            <Border.RenderTransform>
-                <RotateTransform Angle="-135"/>
-            </Border.RenderTransform>
-        </Border>
-
-        <!-- ComboBox -->
-        <ComboBox Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="530,122,0,0">
-            <!-- Your ComboBox items go here -->
-            <ComboBoxItem Content="Item 1"/>
-            <ComboBoxItem Content="Item 2"/>
-            <ComboBoxItem Content="Item 3"/>
-        </ComboBox>
-        <!-- Rectangle 13 -->
 
         <!-- Line 3 -->
         <Border Width="283" Height="0" Margin="473,166,684,858" BorderThickness="7" BorderBrush="#FFFFFF">
@@ -65,6 +204,7 @@
                 <DropShadowEffect ShadowDepth="4" Color="#655a73" />
             </Border.Effect>
         </Border>
+
 
         <!-- Line 39 -->
         <Border Width="283" Height="0" Margin="33,372,0,0" BorderThickness="7" BorderBrush="#FFFFFF">
@@ -76,7 +216,7 @@
         <!-- TrackMe -->
         <Button Margin="44,10,1114,936" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
@@ -89,9 +229,122 @@
             </Button.Template>
         </Button>
         <!-- Головна -->
+        <Button Margin="35,242,1105,704" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle x:Name="HighlightRectangle" Fill="#FFFFFFFF" Opacity="0" RadiusX="20" RadiusY="20"/>
+                        <Border x:Name="ButtonBorder" CornerRadius="20"  BorderThickness="7" BorderBrush="#FFF">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                            </Border.Effect>
+                            <Grid>
+                                <TextBlock Text="Головна" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                To="1"
+                                Duration="0:0:0.3"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0"
+                                Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+        <!-- Line 39 -->
+        <Border Width="283" Height="0" Margin="33,372,0,0" BorderThickness="7" BorderBrush="#FFFFFF">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#655a73" />
+            </Border.Effect>
+        </Border>
+
+        <!-- TrackMe -->
+        <Button Margin="44,10,1114,936" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                        </Border.Effect>
+                        <Grid>
+                            <TextBlock Text="TrackMe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Головна -->
+        <Button Margin="35,242,1105,704" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle x:Name="HighlightRectangle" Fill="#FFFFFFFF" Opacity="0" RadiusX="20" RadiusY="20"/>
+                        <Border x:Name="ButtonBorder" CornerRadius="20"  BorderThickness="7" BorderBrush="#FFF">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                            </Border.Effect>
+                            <Grid>
+                                <TextBlock Text="Головна" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                To="1"
+                                Duration="0:0:0.3"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                Storyboard.TargetName="HighlightRectangle"
+                                Storyboard.TargetProperty="Opacity"
+                                To="0"
+                                Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
         <Button Width="283" Height="69" Margin="42,357,1114,0" VerticalAlignment="Top">
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
                         <!-- Line 39 -->
                         <Border
@@ -120,44 +373,13 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Width="283" Height="69" Margin="42,227,1114,0" VerticalAlignment="Top">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <!-- Line 39 -->
-                        <Border
-                    Width="283"
-                    Height="7"
-                    Background="#FFFFFF"
-                    VerticalAlignment="Bottom">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25"/>
-                            </Border.Effect>
-                        </Border>
-
-                        <!-- Text Block (Мій профіль) -->
-                        <TextBlock
-                    Text="Головна"
-                    FontFamily="Jura"
-                    FontWeight="Normal"
-                    FontSize="36"
-                    LineHeight="43"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Margin="0,10,0,0"
-                    TextAlignment="Center"
-                    Foreground="#000000"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
 
         <!-- Мій профіль -->
 
         <!-- Налаштування -->
         <Button Width="283" Height="70" Margin="42,0,1114,0" VerticalAlignment="Center">
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
                         <!-- Line 39 -->
                         <Border
@@ -182,6 +404,7 @@
                     Margin="0,10,0,0"
                     TextAlignment="Center"
                     Foreground="#000000"/>
+
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -191,13 +414,13 @@
         <Grid Width="316" Height="143" Margin="21,865,0,0">
             <!-- Rectangle 4 -->
 
+
             <!-- Rectangle 22 -->
         </Grid>
-
         <!-- Фоновий режим -->
         <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
@@ -212,7 +435,7 @@
         <!-- Завершити -->
         <Button Margin="24,822,1096,131" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
             <Button.Template>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
@@ -224,5 +447,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+
+        <Grid/>
     </Grid>
 </Page>

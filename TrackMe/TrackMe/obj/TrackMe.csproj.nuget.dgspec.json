@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj": {}
+    "C:\\github\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj": {}
   },
   "projects": {
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {
+    "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
+        "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\Данило\\.nuget\\packages\\",
-        "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\obj\\",
+        "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Данило\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
-                "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
+              "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+                "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
               }
             }
           }
@@ -67,21 +71,25 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+    "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+        "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
         "projectName": "DataLogic",
-        "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
-        "packagesPath": "C:\\Users\\Данило\\.nuget\\packages\\",
-        "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\obj\\",
+        "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Данило\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,21 +162,25 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj": {
+    "C:\\github\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
+        "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
         "projectName": "TrackMe",
-        "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
-        "packagesPath": "C:\\Users\\Данило\\.nuget\\packages\\",
-        "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\TrackMe\\obj\\",
+        "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\TrackMe\\TrackMe.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\TrackMe\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Данило\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -182,14 +194,14 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {
-                "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj"
+              "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {
+                "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj"
               },
-              "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
-                "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
+              "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+                "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
               },
-              "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj": {
-                "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj"
+              "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj": {
+                "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj"
               }
             }
           }
@@ -227,21 +239,25 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj": {
+    "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
+        "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
         "projectName": "UserInterface",
-        "projectPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
-        "packagesPath": "C:\\Users\\Данило\\.nuget\\packages\\",
-        "outputPath": "D:\\СУКА ЇБАШ 1 МІСЯЦЬ\\PI\\PI_Project_2023\\TrackMe\\UserInterface\\obj\\",
+        "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\UserInterface.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\UserInterface\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Данило\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -290,7 +306,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

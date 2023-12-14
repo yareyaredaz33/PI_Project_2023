@@ -140,3 +140,7 @@ D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\DataLogic\obj\Deb
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\Npgsql.dll
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\System.Data.SQLite.dll
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\github\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\Npgsql.dll
+C:\github\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\github\PI_Project_2023\TrackMe\DataLogic\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\github\PI_Project_2023\TrackMe\DataLogic\obj\Debug\net6.0-windows\DataLogic.csproj.AssemblyReference.cache

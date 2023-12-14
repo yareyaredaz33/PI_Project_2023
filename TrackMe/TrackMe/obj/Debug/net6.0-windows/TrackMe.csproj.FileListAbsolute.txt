@@ -243,3 +243,9 @@ D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\TrackMe\obj\Debug
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\TrackMe\obj\Debug\net6.0-windows\TrackMe.pdb
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\TrackMe\obj\Debug\net6.0-windows\TrackMe.genruntimeconfig.cache
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\TrackMe\obj\Debug\net6.0-windows\ref\TrackMe.dll
+C:\github\PI_Project_2023\TrackMe\TrackMe\bin\Debug\net6.0-windows\Npgsql.dll
+C:\github\PI_Project_2023\TrackMe\TrackMe\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\github\PI_Project_2023\TrackMe\TrackMe\bin\Debug\net6.0-windows\System.CodeDom.dll
+C:\github\PI_Project_2023\TrackMe\TrackMe\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\github\PI_Project_2023\TrackMe\TrackMe\bin\Debug\net6.0-windows\System.Management.dll
+C:\github\PI_Project_2023\TrackMe\TrackMe\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
