@@ -95,3 +95,7 @@ C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Loading
 C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\DonutSpinner.baml
 C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Loading.baml
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Profile.g.cs
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Settings.g.cs
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Profile.baml
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Settings.baml
