@@ -90,3 +90,7 @@ D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\UserInterface\obj
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\UserInterface.pdb
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\UserInterface.genruntimeconfig.cache
 D:\СУКА ЇБАШ 1 МІСЯЦЬ\PI\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\ref\UserInterface.dll
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Profile.g.cs
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Settings.g.cs
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Profile.baml
+C:\github\PI_Project_2023\TrackMe\UserInterface\obj\Debug\net6.0-windows\Settings.baml
