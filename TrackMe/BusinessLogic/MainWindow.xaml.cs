@@ -50,25 +50,13 @@ namespace TrackMe
                         // Determine if the process is an App or Background Process
                         var processType = IsAppProcess(processName) ? "App" : "Background Process";
 
-                        // Create a ProcessInfo object
+                        // Create a new ProcessInfo object
                         var processInfo = new ProcessInfo { ProcessName = processName, ProcessId = processId, ProcessType = processType };
 
                         // Add the process information to your ListView
                         listView.Items.Add(processInfo);
 
                         dbLogicInstance.AddProcessInfoToDatabase(processInfo.ProcessName, processInfo.ProcessId);
-
-                        // Print application information to the ListView
-                        listView.Items.Add(processInfo);
-
-                        // Print table names to the TextBox
-                        var tableNames = dbLogicInstance.GetTableNames();
-                        tableNameTextBox.AppendText("Table Names:\n");
-                        foreach (var tableName in tableNames)
-                        {
-                            tableNameTextBox.AppendText($"{tableName}\n");
-                        }
-                        tableNameTextBox.AppendText("\nTest Message");
                     }
                 }
             }
