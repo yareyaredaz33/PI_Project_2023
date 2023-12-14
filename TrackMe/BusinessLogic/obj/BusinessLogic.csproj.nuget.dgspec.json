@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {}
+    "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {}
   },
   "projects": {
-    "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {
+    "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\BusinessLogic\\obj\\",
+        "projectPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\BusinessLogic\\BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\Галина\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Галина\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -32,8 +32,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
-                "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
+              "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+                "projectPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj"
               }
             }
           }
@@ -59,7 +59,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,29 +72,29 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
+    "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+        "projectUniqueName": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
         "projectName": "DataLogic",
-        "projectPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\PI_Project_2023\\TrackMe\\DataLogic\\obj\\",
+        "projectPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\DataLogic\\DataLogic.csproj",
+        "packagesPath": "C:\\Users\\Галина\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Галина\\PI_Project_2023\\TrackMe\\DataLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Галина\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -150,7 +151,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -162,7 +164,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

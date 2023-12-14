@@ -24,5 +24,23 @@ namespace UserInterface
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Toggle visibility of TextBoxes and TextBlocks
+            //UserNameTextBox.Visibility = UserNameTextBox.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            
+        }
+
+
+        private void UserNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
