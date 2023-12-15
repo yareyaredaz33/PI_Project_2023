@@ -10,35 +10,51 @@ using System.Data.SQLite;
 using TrackMe;
 using System.Diagnostics;
 using System.Data;
+using System.Globalization;
 
 namespace TrackMe.DataLogic
 {
     public class MyDBLogic : DbContext
     {
-        private static MyDBLogic dbLogicInstance;
+        
+        private SQLiteConnection _connection;
         private readonly string _databaseName = "ProgramsInfo.db";
+        private static int _uniqueIdCounter = 1;
 
         public DbSet<User> Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("your_sqlite_connection_string_here");
-        }
-
-        private SQLiteConnection _connection;
-        private readonly string _programPath;
 
         public MyDBLogic(string programPath)
         {
             var solutionPath = Directory.GetParent(programPath).Parent.Parent.FullName;
-            var dbFileName = _databaseName; // Specify your database filename
-            var dbPath = Path.Combine(solutionPath, dbFileName);
-            _connection = new SQLiteConnection($"Data Source={_databaseName};Version=3;");
+            
+            
+            _connection = new SQLiteConnection($"Data Source={programPath};Version=3;");
 
             // Use the specified database name when creating tables
-            CreateDatabase(_databaseName);
-            CreateTables();
+            CreateDatabase(programPath);
+            Debug.WriteLine("created and connected succesfuly\n\n\n\n");
+           
         }
+        public void OpenConnection()
+        {
+            if (_connection.State != ConnectionState.Open)
+            {
+                _connection.Open();
+            }
+        }
+
+        public void CloseConnection()
+        {
+            if (_connection.State != ConnectionState.Closed)
+            {
+                _connection.Close();
+            }
+        }
+
+
+
+
+
 
         private void CreateDatabase(string databaseName)
         {
@@ -57,74 +73,332 @@ namespace TrackMe.DataLogic
             }
         }
 
-        private void CreateTables()
+        public void CreateTable(string ProgramName)
+        {
+            string sanitizedProgramName = SanitizeTableName(ProgramName);
+            OpenConnection();
+            using (var command = new SQLiteCommand(_connection))
+            {
+                // Sanitize the table name by replacing invalid characters with underscores
+               
+
+                // Create your tables here in the specified database
+                command.CommandText = $@"CREATE TABLE IF NOT EXISTS {sanitizedProgramName}
+                        (
+                            Id INTEGER PRIMARY KEY,
+                            Name TEXT,
+                            StartTime DATETIME,
+                            EndTime DATETIME
+                        )";
+
+                command.ExecuteNonQuery();
+                Debug.WriteLine("created TABLE\n\n\n\n");
+            }
+            CloseConnection();
+        }
+
+        public string SanitizeTableName(string tableName)
+        {
+            // Replace invalid characters with underscores
+            foreach (char invalidChar in Path.GetInvalidFileNameChars())
+            {
+                tableName = tableName.Replace(invalidChar, '_');
+            }
+            return tableName;
+        }
+
+        public void FillTable(string ProgramName)
+        {
+            OpenConnection();
+
+            // Get the last assigned ID from the table
+            int lastAssignedId = GetLastAssignedId(ProgramName);
+
+            // Check if the table is empty
+            if (lastAssignedId == -1)
+            {
+                // Table is empty, start from ID 1
+                lastAssignedId = 0;
+            }
+
+            // Increment to get the new unique ID
+            int generatedId = lastAssignedId + 1;
+
+            DateTime startTime = DateTime.Now;
+            DateTime? endTime = null; // Set it to null or some default value, depending on your requirements
+
+            using (var insertCmd = new SQLiteCommand($"INSERT INTO {ProgramName} (Id, Name, StartTime, EndTime) VALUES (@Id, @Name, @StartTime, @EndTime)", _connection))
+            {
+                insertCmd.Parameters.AddWithValue("@Id", generatedId);
+                insertCmd.Parameters.AddWithValue("@Name", ProgramName);
+                insertCmd.Parameters.AddWithValue("@StartTime", startTime);
+                insertCmd.Parameters.AddWithValue("@EndTime", endTime);
+
+                insertCmd.ExecuteNonQuery();
+            }
+            Debug.WriteLine("filled\n");
+            CloseConnection();
+        }
+
+        public void DeleteAllRows()
         {
             try
             {
-                OpenConnection();
+                OpenConnection(); // Ensure the connection is open
 
-                using (var command = new SQLiteCommand(_connection))
+                // Disable foreign key constraints
+                using (var pragmaCommand = new SQLiteCommand("PRAGMA foreign_keys=off", _connection))
                 {
-                    // Create your tables here in the specified database
-                    command.CommandText = $@"CREATE TABLE IF NOT EXISTS Users
-                                (
-                                    Id INTEGER PRIMARY KEY,
-                                    Name TEXT
-                                    -- Add other columns as needed
-                                )";
+                    pragmaCommand.ExecuteNonQuery();
+                }
 
-                    command.ExecuteNonQuery();
+                List<string> tableNames = GetTableNames();
+
+                foreach (var tableName in tableNames)
+                {
+                    // Ensure the connection is open before executing the command
+                    if (_connection.State != ConnectionState.Open)
+                    {
+                        _connection.Open();
+                    }
+
+                    using (var command = new SQLiteCommand($"DELETE FROM {tableName}", _connection))
+                    {
+                        command.ExecuteNonQuery();
+                        Debug.WriteLine($"Deleted all rows from table {tableName}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error creating tables: {ex.Message}");
+                Debug.WriteLine($"Error deleting rows: {ex.Message}");
+            }
+            finally
+            {
+                // Enable foreign key constraints
+                using (var pragmaCommand = new SQLiteCommand("PRAGMA foreign_keys=on", _connection))
+                {
+                    pragmaCommand.ExecuteNonQuery();
+                }
+
+                CloseConnection(); // Ensure to close the connection after use
+            }
+        }
+
+
+
+
+
+
+
+        private int GetLastAssignedId(string tableName)
+        {
+            using (var command = new SQLiteCommand($"SELECT MAX(Id) FROM {tableName}", _connection))
+            {
+                var result = command.ExecuteScalar();
+                return result == DBNull.Value ? -1 : Convert.ToInt32(result);
+            }
+        }
+        private int GenerateUniqueId()
+        {
+            // Increment the counter and return the new value
+            return _uniqueIdCounter++;
+        }
+
+        public void UpdateLastRowEndTime(string ProgramName)
+        {
+            OpenConnection();
+            try
+            {
+                // Get the last row where EndTime is null
+                using (var command = new SQLiteCommand($"SELECT * FROM {ProgramName} WHERE EndTime IS NULL ORDER BY Id DESC LIMIT 1", _connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int id = reader.GetInt32(reader.GetOrdinal("Id"));
+                        DateTime endTime = DateTime.Now;
+
+                        // Update the EndTime for the found row
+                        using (var updateCmd = new SQLiteCommand($"UPDATE {ProgramName} SET EndTime = @EndTime WHERE Id = @Id", _connection))
+                        {
+                            updateCmd.Parameters.AddWithValue("@Id", id);
+                            updateCmd.Parameters.AddWithValue("@EndTime", endTime);
+                            updateCmd.ExecuteNonQuery();
+                        }
+
+                        Debug.WriteLine($"Updated EndTime for the last row in table {ProgramName}");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"No rows with EndTime=null found in table {ProgramName}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error updating EndTime: {ex.Message}");
             }
             finally
             {
                 CloseConnection();
             }
         }
-        public void OpenConnection()
+
+        public void DeleteAllTables()
         {
-            if (_connection.State != ConnectionState.Open)
+            try
             {
-                _connection.Open();
+                OpenConnection(); // Ensure the connection is open
+
+                // Disable foreign key constraints
+                using (var pragmaCommand = new SQLiteCommand("PRAGMA foreign_keys=off", _connection))
+                {
+                    pragmaCommand.ExecuteNonQuery();
+                }
+
+                List<string> tableNames = GetTableNames();
+
+                foreach (var tableName in tableNames)
+                {
+                    using (var command = new SQLiteCommand($"DROP TABLE IF EXISTS {tableName}", _connection))
+                    {
+                        command.ExecuteNonQuery();
+                        Debug.WriteLine($"Table {tableName} deleted");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error deleting tables: {ex.Message}");
+            }
+            finally
+            {
+               
+
+                CloseConnection(); // Ensure to close the connection after use
             }
         }
 
-        public void CloseConnection()
-        {
-            if (_connection.State != ConnectionState.Closed)
-            {
-                _connection.Close();
-            }
-        }
 
-        public static void SetInstance(MyDBLogic instance)
-        {
-            dbLogicInstance = instance;
-        }
-
-
-        public void EliminateData()
+        public void UpdateAllTablesLastRowEndTime()
         {
             OpenConnection();
-            using (var cmd = new SQLiteCommand("DELETE FROM application", _connection))
+            try
             {
-                cmd.ExecuteNonQuery();
-            }
+                List<string> tableNames = GetTableNames();
 
-            using (var cmd = new SQLiteCommand("DELETE FROM sessions", _connection))
-            {
-                cmd.ExecuteNonQuery();
+                foreach (var tableName in tableNames)
+                {
+                    UpdateLastRowEndTime(tableName);
+                }
+                Debug.WriteLine("updatelastertow");
             }
-            CloseConnection();
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error updating EndTime in all tables: {ex.Message}");
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
 
+        public void CalculateAndPrintTotalTimeSpent(string timeLapse)
+        {
+            OpenConnection();
+            try
+            {
+                List<string> tableNames = GetTableNames();
 
+                foreach (var tableName in tableNames)
+                {
+                    TimeSpan totalTime = CalculateTotalTime(tableName, timeLapse);
 
+                    // Skip printing tables with zero total time
+                    if (totalTime != TimeSpan.Zero)
+                    {
+                        Debug.WriteLine($"Table: {tableName}, Total Time Spent: {FormatTime(totalTime)}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error calculating and printing total time: {ex.Message}");
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
 
+        private TimeSpan CalculateTotalTime(string tableName, string timeLapse)
+        {
+            TimeSpan totalTime = TimeSpan.Zero;
+
+            try
+            {
+                OpenConnection(); // Ensure the connection is open
+
+                DateTime filterDate;
+
+                // Set the filter date based on the time lapse
+                switch (timeLapse.ToLower())
+                {
+                    case "day":
+                        filterDate = DateTime.Now.AddDays(-1);
+                        break;
+                    case "week":
+                        filterDate = DateTime.Now.AddDays(-7);
+                        break;
+                    case "year":
+                        filterDate = DateTime.Now.AddYears(-1);
+                        break;
+                    default:
+                        filterDate = DateTime.MinValue; // No filter
+                        break;
+                }
+
+                using (var command = new SQLiteCommand($"SELECT StartTime, EndTime FROM {tableName}", _connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DateTime startTime = reader.GetDateTime(reader.GetOrdinal("StartTime"));
+                        DateTime? endTime = reader["EndTime"] as DateTime?;
+
+                        // Apply the filter based on the time lapse
+                        if (filterDate == DateTime.MinValue || (startTime >= filterDate && (endTime == null || endTime >= filterDate)))
+                        {
+                            // If EndTime is not null, calculate the time difference
+                            if (endTime.HasValue)
+                            {
+                                totalTime += endTime.Value.Subtract(startTime);
+                            }
+                            else
+                            {
+                                // If EndTime is null, use DateTime.Now as the end time
+                                totalTime += DateTime.Now.Subtract(startTime);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error calculating total time for table {tableName}: {ex.Message}");
+            }
+            finally
+            {
+                CloseConnection(); // Ensure to close the connection after use
+            }
+
+            return totalTime.TotalMilliseconds > 0 ? totalTime : TimeSpan.Zero;
+        }
+        private string FormatTime(TimeSpan time)
+        {
+            return $"{time.Days} days, {time.Hours} hours, {time.Minutes} minutes, {time.Seconds} seconds, and {time.Milliseconds} milliseconds";
+        }
         public void PrintTableNames()
         {
             OpenConnection();
@@ -152,44 +426,8 @@ namespace TrackMe.DataLogic
 
 
 
-        public void AddProcessInfoToDatabase(string processName, int processId)
-        {
-            try
-            {
-                // Check if the table exists, if not, create it in the ProgramsInfo database
-                if (!TableExists("ProgramsInfo"))
-                {
-                    CreateTableForProgramsInfo();
-                    Debug.WriteLine("Table ProgramsInfo created.");
-                }
-
-                // Add a new row to the ProgramsInfo table with start time
-                InsertProcessStart("ProgramsInfo", processId, processName, DateTime.Now);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error adding process info to the database: {ex.Message}");
-            }
-        }
-
-        public void CreateTableForProgramsInfo()
-        {
-            OpenConnection();
-            using (var command = new SQLiteCommand(_connection))
-            {
-                command.CommandText = @"CREATE TABLE IF NOT EXISTS ProgramsInfo
-                            (
-                                entry_id INTEGER PRIMARY KEY NOT NULL,
-                                start_time DATETIME NOT NULL,
-                                end_time DATETIME,
-                                process_id INTEGER,
-                                process_name TEXT
-                                -- Add other columns as needed
-                            )";
-                command.ExecuteNonQuery();
-            }
-            CloseConnection();
-        }
+     
+        
         public List<string> GetTableNames()
         {
             OpenConnection();
@@ -216,33 +454,9 @@ namespace TrackMe.DataLogic
             }
             return tableNames;
         }
-        public void InsertProcessStart(string tableName, int processId, string processName, DateTime startTime)
-        {
-            OpenConnection();
-            using (var command = new SQLiteCommand(_connection))
-            {
-                command.CommandText = $@"INSERT INTO {tableName} (start_time, end_time, process_id, process_name)
-                              VALUES (@startTime, NULL, @processId, @processName)";
-                command.Parameters.AddWithValue("@startTime", startTime);
-                command.Parameters.AddWithValue("@processId", processId);
-                command.Parameters.AddWithValue("@processName", processName);
-                command.ExecuteNonQuery();
-            }
-            CloseConnection();
-        }
+       
 
-        private bool TableExists(string tableName)
-        {
-            OpenConnection();
-
-            using (var command = new SQLiteCommand($"SELECT name FROM sqlite_master WHERE type='table' AND name='{tableName}'", _connection))
-            using (var reader = command.ExecuteReader())
-            {
-                bool exists = reader.HasRows;
-                CloseConnection();
-                return exists;
-            }
-        }
+  
     }
 
 

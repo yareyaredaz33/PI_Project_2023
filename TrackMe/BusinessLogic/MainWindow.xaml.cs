@@ -5,26 +5,147 @@ using System.Linq;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Windows;
-
+using System.Windows.Threading;
+using System.IO;
 namespace TrackMe
 {
     public partial class MainWindow : Window
     {
+        private List<ProcessInfo> oldProcessInfo;
+        private List<ProcessInfo> newProcessInfo;
         private TrackMe.DataLogic.MyDBLogic dbLogicInstance;
+        private List<ProcessInfo> runningProcesses;
+        private string[] previousSanitizedProcessNamesArray;
 
+        private string[] sanitizedProcessNamesArray;
 
+        private ManagementEventWatcher processStartWatcher;
+        private ManagementEventWatcher processStopWatcher;
+        private DispatcherTimer updateTimer;
+        
 
         public MainWindow()
         {
-            dbLogicInstance = new TrackMe.DataLogic.MyDBLogic(AppDomain.CurrentDomain.BaseDirectory);
-            TrackMe.DataLogic.MyDBLogic.SetInstance(dbLogicInstance);  // Pass the instance
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+
+            // Subscribe to the Loaded event
+        }
+
+
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Closing += MainWindow_Closing;
+            dbLogicInstance = new TrackMe.DataLogic.MyDBLogic("ProgramInfo.db");
+
+            
+            // This method will be called when the window is loaded and ready
+            runningProcesses = new List<ProcessInfo>();
+            // Execute the logic to get open applications and print to the console
             GetOpenApplications();
-            dbLogicInstance.PrintTableNames(); // Call the method to print table names
+            
+            Debug.WriteLine("\n\n\n\n\n\n\n\n");
+            Debug.WriteLine("\n\n\n\n\n\n\n\n");
+            Debug.WriteLine("NOWNOWNOWNOW\n");
+           
+           
+            // Print each element of the array to the console
+            foreach (var processName in sanitizedProcessNamesArray)
+            {
+                Debug.WriteLine(processName);
+                dbLogicInstance.CreateTable(processName);
+                dbLogicInstance.FillTable(processName);
+
+            }
+            updateTimer = new DispatcherTimer();
+            updateTimer.Interval = TimeSpan.FromSeconds(1);
+            updateTimer.Tick += UpdateTimer_Tick;
+            updateTimer.Start();
+
+        }
+
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            // Call GetOpenApplications to get the current state
+            GetOpenApplications();
+
+            // Compare with the previous state
+            if (!AreArraysEqual(sanitizedProcessNamesArray, previousSanitizedProcessNamesArray))
+            {
+                // If the arrays are not equal, update the UI
+                UpdateUI();
+            }
+
+            // Update the previous state
+            previousSanitizedProcessNamesArray = sanitizedProcessNamesArray.ToArray();
+        }
+        private bool AreArraysEqual(string[] array1, string[] array2)
+        {
+            if (array1 == null || array2 == null)
+            {
+                return false;
+            }
+
+            if (array1.Length != array2.Length)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < array1.Length; i++)
+            {
+                if (array1[i] != array2[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private List<string> addedProcesses = new List<string>();
+        private List<string> removedProcesses = new List<string>();
+
+        private List<string> previousProcesses = new List<string>();
+
+        private void UpdateUI()
+        {
+            // Use Dispatcher to update UI on the UI thread
+            Dispatcher.Invoke(() =>
+            {
+                Debug.WriteLine("UI Updated:");
+
+                // Log added and removed processes
+                var addedProcesses = sanitizedProcessNamesArray.Except(previousProcesses).ToList();
+                var removedProcesses = previousProcesses.Except(sanitizedProcessNamesArray).ToList();
+
+                Debug.WriteLine("Added processes:");
+                foreach (var addedProcess in addedProcesses)
+                {
+                    Debug.WriteLine($"- {addedProcess}");
+                    dbLogicInstance.CreateTable(addedProcess);
+                    dbLogicInstance.FillTable(addedProcess);
+                }
+
+                Debug.WriteLine("Removed processes:");
+                foreach (var removedProcess in removedProcesses)
+                {
+                    Debug.WriteLine($"- {removedProcess}");
+                    dbLogicInstance.UpdateLastRowEndTime(removedProcess);
+                }
+
+                // Update the previousProcesses list
+                previousProcesses = sanitizedProcessNamesArray.ToList();
+            });
         }
 
         private void GetOpenApplications()
         {
+            Debug.WriteLine("called");
+            dbLogicInstance = new TrackMe.DataLogic.MyDBLogic("ProgramInfo.db");
+            List<string> sanitizedProcessNames = new List<string>();
+
             try
             {
                 var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE ExecutablePath IS NOT NULL");
@@ -53,12 +174,22 @@ namespace TrackMe
                         // Create a new ProcessInfo object
                         var processInfo = new ProcessInfo { ProcessName = processName, ProcessId = processId, ProcessType = processType };
 
-                        // Add the process information to your ListView
-                        listView.Items.Add(processInfo);
+                        // Add the sanitized process name to the list
+                        var sanitizedName = dbLogicInstance.SanitizeTableName(processInfo.ProcessName.ToString());
 
-                        dbLogicInstance.AddProcessInfoToDatabase(processInfo.ProcessName, processInfo.ProcessId);
+                        // Remove .exe extension from the process name
+                        sanitizedName = Path.GetFileNameWithoutExtension(sanitizedName);
+
+                        sanitizedProcessNames.Add(sanitizedName);
                     }
                 }
+
+                // If needed, convert the list to an array
+                sanitizedProcessNamesArray = sanitizedProcessNames.ToArray();
+                // Now, you can use sanitizedProcessNamesArray for further processing or storage.
+
+                // Call UpdateUI to log the changes
+                UpdateUI();
             }
             catch (Exception ex)
             {
@@ -115,6 +246,26 @@ namespace TrackMe
 
         [DllImport("user32.dll")]
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
+        public void GetInfo(string timelaps)
+        {
+            dbLogicInstance.CalculateAndPrintTotalTimeSpent("timelaps");
+        }
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // This method will be called when the window is closing
+            Debug.WriteLine("MainWindow_Closing is being called");
+            updateTimer?.Stop();
+            //dbLogicInstance.DeleteAllRows();
+            dbLogicInstance.UpdateAllTablesLastRowEndTime();
+            dbLogicInstance.CalculateAndPrintTotalTimeSpent("day");
+
+            // Close the database connection (if it is not null)
+            dbLogicInstance?.CloseConnection();
+
+            // If needed, you can add more cleanup steps based on your application's requirements.
+        }
+
 
         // Define a class to store process information
         private class ProcessInfo
