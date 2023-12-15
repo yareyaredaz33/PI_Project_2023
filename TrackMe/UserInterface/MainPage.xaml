@@ -418,7 +418,7 @@
             <!-- Rectangle 22 -->
         </Grid>
         <!-- Фоновий режим -->
-        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click_2">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">

@@ -52,5 +52,10 @@ namespace UserInterface
         {
             NavigationService.Navigate(new UserInterface.Settings());
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace UserInterface
     /// </summary>
     public partial class Settings : Page
     {
+        
         public Settings()
         {
             InitializeComponent();
@@ -41,5 +42,12 @@ namespace UserInterface
         {
             NavigationService.Navigate(new UserInterface.MainPage());
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+       
     }
 }

@@ -255,7 +255,7 @@
 
 
         <!-- Завершити -->
-        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click_3">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
@@ -270,7 +270,7 @@
             </Button.Template>
         </Button>
         <!-- Фоновий режим -->
-        <Button Margin="24,822,1096,131" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+        <Button Margin="24,822,1096,131" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click_4">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">

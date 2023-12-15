@@ -338,6 +338,7 @@
                     </Rectangle>
                     <!-- User Name -->
                     <TextBlock
+                        
                         Text="John Doe"
                         FontFamily="Jura"
                         FontWeight="Normal"
@@ -454,7 +455,7 @@
 
 
         <!-- Завершити -->
-        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click_4">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
