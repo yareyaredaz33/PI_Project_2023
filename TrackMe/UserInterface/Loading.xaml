@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UserInterface"
       mc:Ignorable="d" 
       d:DesignHeight="1000" d:DesignWidth="1440"
-      Title="Loading" Background="White">
+      Title="Loading" Background="#FFF5F0F9">
 
     <Grid>
         <local:DonutSpinner  Height="80" Width="80" Duration="0:0:2" SpinnerColor="#FF9052B5"/>

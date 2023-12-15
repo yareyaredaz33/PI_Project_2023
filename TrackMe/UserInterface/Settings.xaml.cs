@@ -48,6 +48,16 @@ namespace UserInterface
             Application.Current.Shutdown();
         }
 
-       
+        private void BackgroungModeSettings(object sender, RoutedEventArgs e)
+        {
+
+            Window parentWindow = Window.GetWindow(this);
+
+            if (parentWindow != null)
+            {
+                parentWindow.WindowState = WindowState.Minimized;
+            }
+        }
+
     }
 }

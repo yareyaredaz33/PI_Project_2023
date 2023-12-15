@@ -23,6 +23,16 @@ namespace UserInterface
         public Loading()
         {
             InitializeComponent();
+            Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1));
+
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    MainPage mainPage = new MainPage();
+                    NavigationService.Navigate(mainPage);
+                });
+            });
         }
     }
 }
