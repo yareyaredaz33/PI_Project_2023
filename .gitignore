@@ -179,6 +179,7 @@ TrackMe/TrackMe/bin
 TrackMe/UserInterface/bin
 TrackMe/BuisnessLogic/bin
 TrackMe/DataLogic/bin
+TrackMe/.vs
 # Click-Once directory
 publish/
 
