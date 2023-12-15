@@ -27,10 +27,8 @@ namespace UserInterface
             {
                 await Task.Delay(TimeSpan.FromSeconds(1));
 
-                // Ensure that UI-related operations are done on the UI thread
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    // Navigate to the Mainpage
                     MainPage mainPage = new MainPage();
                     NavigationService.Navigate(mainPage);
                 });

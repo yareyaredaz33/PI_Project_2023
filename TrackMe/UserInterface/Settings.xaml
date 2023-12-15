@@ -270,7 +270,7 @@
             </Button.Template>
         </Button>
         <!-- Фоновий режим -->
-        <Button Margin="24,822,1096,131" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+        <Button  x:Name="backgroundsettings" Margin="24,822,1096,131" Click="BackgroungModeSettings" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">

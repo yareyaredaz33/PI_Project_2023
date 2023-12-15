@@ -36,6 +36,7 @@ namespace UserInterface
         }
         private bool isDarkMode = false;
 
+
         private void DarkModeToggle_Checked(object sender, RoutedEventArgs e)
         {
             isDarkMode = true;
@@ -65,7 +66,19 @@ namespace UserInterface
             }
         }
 
+        private void BackgrondMode(object sender, RoutedEventArgs e)
+        {
+
+            Window parentWindow = Window.GetWindow(this);
+
+            if (parentWindow != null)
+            {
+                parentWindow.WindowState = WindowState.Minimized;
+            }
+        }
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
+
         {
             Application.Current.Shutdown();
         }

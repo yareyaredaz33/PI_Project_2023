@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,14 +27,13 @@ namespace TrackMe
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             mainFrame.Navigate(new UserInterface.MainPage());
             button.Visibility = Visibility.Collapsed;
             TrackMelogo.Visibility = Visibility.Collapsed;
 
-
-
         }
-
+       
         private void mainFrame_Navigated(object sender, NavigationEventArgs e)
         {
 

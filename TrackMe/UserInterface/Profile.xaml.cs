@@ -115,7 +115,17 @@ namespace UserInterface
         {
 
         }
+        
+        private void BackgroungModeProfile(object sender, RoutedEventArgs e)
+        {
 
+            Window parentWindow = Window.GetWindow(this);
+
+            if (parentWindow != null)
+            {
+                parentWindow.WindowState = WindowState.Minimized;
+            }
+        }
         private void userNameTextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
