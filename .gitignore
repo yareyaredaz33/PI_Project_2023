@@ -175,7 +175,10 @@ DocProject/Help/*.hhk
 DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
-
+TrackMe/TrackMe/bin
+TrackMe/UserInterface/bin
+TrackMe/BuisnessLogic/bin
+TrackMe/DataLogic/bin
 # Click-Once directory
 publish/
 

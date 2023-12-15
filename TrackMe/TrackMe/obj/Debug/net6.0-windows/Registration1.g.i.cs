@@ -61,7 +61,7 @@ namespace TrackMe {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TrackMe;V1.0.0.0;component/registration1.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TrackMe;component/registration1.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Registration1.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
