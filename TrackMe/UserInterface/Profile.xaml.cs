@@ -33,7 +33,7 @@ namespace UserInterface
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             // Toggle visibility of TextBoxes and TextBlocks
-            //UserNameTextBox.Visibility = UserNameTextBox.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            UserNameTextBox.Visibility = UserNameTextBox.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
             
         }
 
@@ -41,6 +41,16 @@ namespace UserInterface
         private void UserNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserInterface.MainPage());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserInterface.Settings());
         }
     }
 }

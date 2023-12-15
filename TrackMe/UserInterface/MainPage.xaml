@@ -297,7 +297,7 @@
             </Button.Template>
         </Button>
         <!-- Головна -->
-        <Button Margin="35,242,1105,704" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+        <Button Margin="35,242,1105,704" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -342,7 +342,7 @@
         </Button>
 
 
-        <Button Width="283" Height="69" Margin="42,357,1114,0" VerticalAlignment="Top">
+        <Button Width="283" Height="69" Margin="42,357,1114,0" VerticalAlignment="Top" Click="Button_Click_1">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
