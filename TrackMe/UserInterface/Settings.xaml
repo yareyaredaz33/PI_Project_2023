@@ -1,0 +1,288 @@
+﻿<Page x:Class="UserInterface.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserInterface"
+      mc:Ignorable="d" 
+       Height="1024" Width="1440"
+      
+      Title="Settings">
+
+
+    <Grid Background="#FFF5F0F9">
+        <!-- Rectangle 1 -->
+        <Rectangle Fill="#ae9dbf" Margin="0,0,1072,0" />
+
+        <!-- Rectangle 3 -->
+
+        <!-- Rectangle 13 -->
+
+        <!-- Line 3 -->
+        <Border Width="283" Height="0" Margin="30,493,0,0" BorderThickness="7" BorderBrush="#FFFFFF">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#655a73" />
+            </Border.Effect>
+        </Border>
+
+        <!-- Line 39 -->
+        <Border Width="283" Height="0" Margin="33,372,0,0" BorderThickness="7" BorderBrush="#FFFFFF">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#655a73" />
+            </Border.Effect>
+        </Border>
+
+        <!-- TrackMe -->
+        <Button Margin="44,10,1114,936" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                        </Border.Effect>
+                        <Grid>
+                            <TextBlock Text="TrackMe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Головна -->
+        <Button Width="283" Height="69" Margin="42,227,1114,0" VerticalAlignment="Top" Click="Button_Click_1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!-- Line 39 -->
+                        <Border
+            Width="283"
+            Height="7"
+            Background="#FFFFFF"
+            VerticalAlignment="Bottom">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25"/>
+                            </Border.Effect>
+                        </Border>
+
+                        <!-- Text Block (Мій профіль) -->
+                        <TextBlock
+            Text="Головна"
+            FontFamily="Jura"
+            FontWeight="Normal"
+            FontSize="36"
+            LineHeight="43"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,10,0,0"
+            TextAlignment="Center"
+            Foreground="#000000"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Мій профіль -->
+        <Button Width="283" Height="69" Margin="42,357,1114,0" VerticalAlignment="Top" Click="Button_Click_2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!-- Line 39 -->
+                        <Border
+                    Width="283"
+                    Height="7"
+                    Background="#FFFFFF"
+                    VerticalAlignment="Bottom">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25"/>
+                            </Border.Effect>
+                        </Border>
+
+
+                        <!-- Text Block (Мій профіль) -->
+                        <TextBlock
+                    Text="Мій профіль"
+                    FontFamily="Jura"
+                    FontWeight="Normal"
+                    FontSize="36"
+                    LineHeight="43"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    TextAlignment="Center"
+                    Foreground="#000000"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Grid>
+            <StackPanel Height="76" Margin="420,22,670,0" VerticalAlignment="Top">
+                <!-- Text Block (Мій профіль) -->
+
+                <!-- Line 39 -->
+                <TextBlock
+        Text="Налаштування"
+        FontFamily="Bodoni MT"
+        FontWeight="Bold"
+        FontSize="36"
+        LineHeight="43"
+        TextAlignment="Left"
+        Foreground="#000000" Width="369"/>
+
+                <!-- Line 39 -->
+                <Border
+        Width="371"
+        Height="7"
+        Background="#ae9dbf">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.5"/>
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            <StackPanel Height="76" Margin="420,194,238,0" VerticalAlignment="Top">
+                <TextBlock
+                    FontFamily="Jura"
+                    FontWeight="Normal"
+                    FontSize="30"
+                    LineHeight="43"
+                    TextAlignment="Left"
+                    Foreground="#000000"><Run Language="uk-ua" Text="Оновити/встановити пароль"/></TextBlock>
+
+                <!-- Line 39 -->
+                <Border
+                    Width="775"
+                    Height="7"
+                    Background="#ae9dbf">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25"/>
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            <StackPanel Height="76" Margin="420,346,238,0" VerticalAlignment="Top">
+                <TextBlock
+                    FontFamily="Jura"
+                    FontWeight="Normal"
+                    FontSize="30"
+                    LineHeight="43"
+                    TextAlignment="Left"
+                    Foreground="#000000"><Run Language="uk-ua" Text="Чорний список"/></TextBlock>
+
+                <!-- Line 39 -->
+                <Border
+                    Width="780"
+                    Height="7"
+                    Background="#ae9dbf">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25"/>
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+            <StackPanel Height="76" Margin="420,500,238,0" VerticalAlignment="Top">
+                <TextBlock
+                    FontFamily="Jura"
+                    FontWeight="Normal"
+                    FontSize="30"
+                    LineHeight="43"
+                    TextAlignment="Left"
+                    Foreground="#000000"><Run Language="uk-ua" Text="Підтримати розробників"/></TextBlock>
+
+                <!-- Line 39 -->
+                <Border
+                    Width="781"
+                    Height="7"
+                    Background="#ae9dbf">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25"/>
+                    </Border.Effect>
+                </Border>
+            </StackPanel>
+
+
+        </Grid>
+        <!-- Налаштування -->
+        <Button Margin="35,500,1105,446" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle x:Name="HighlightRectangle" Fill="#FFFFFFFF" Opacity="0" RadiusX="20" RadiusY="20"/>
+                        <Border x:Name="ButtonBorder" CornerRadius="20"  BorderThickness="7" BorderBrush="#FFF">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                            </Border.Effect>
+                            <Grid>
+                                <TextBlock Text="Налаштування" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                        Storyboard.TargetName="HighlightRectangle"
+                        Storyboard.TargetProperty="Opacity"
+                        To="1"
+                        Duration="0:0:0.3"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                        Storyboard.TargetName="HighlightRectangle"
+                        Storyboard.TargetProperty="Opacity"
+                        To="0"
+                        Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <!-- Group 15 -->
+        <Grid Width="316" Height="143" Margin="21,865,0,0">
+            <!-- Rectangle 4 -->
+
+            <!-- Rectangle 22 -->
+        </Grid>
+
+
+        <!-- Завершити -->
+        <Button Margin="24,909,1096,44" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light" Click="Button_Click_3">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                        </Border.Effect>
+                        <Grid>
+                            <TextBlock Text="Завершити" FontFamily="Jura" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- Фоновий режим -->
+        <Button Margin="24,822,1096,131" RenderTransformOrigin="0.503,0.123" FontFamily="Cascadia Mono Light">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" Background="#E5CCFF" BorderThickness="7" BorderBrush="#FFF">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="4" Color="Black" Opacity="0.25" Direction="270" />
+                        </Border.Effect>
+                        <Grid>
+                            <TextBlock Text="Фоновий Режим"  FontFamily="Jura" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Page>

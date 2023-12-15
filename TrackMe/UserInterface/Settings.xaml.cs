@@ -13,30 +13,41 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TrackMe
+namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Settings : Page
     {
-        public MainWindow()
+        
+        public Settings()
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new UserInterface.Loading());
-            button.Visibility = Visibility.Collapsed;
-            TrackMelogo.Visibility = Visibility.Collapsed;
-
-
 
         }
 
-        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+       
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new UserInterface.Profile());
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserInterface.MainPage());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+       
     }
 }

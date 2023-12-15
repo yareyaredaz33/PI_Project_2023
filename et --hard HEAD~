@@ -1,0 +1,265 @@
+[33mcommit 90411bfa40260f9f48f1e29edd75280ba7a0b433[m[33m ([m[1;36mHEAD -> [m[1;32mUI[m[33m)[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Dec 14 22:50:24 2023 +0200
+
+    Revert "Merge branch 'UI' of https://github.com/yareyaredaz33/PI_Project_2023 into UI"
+    
+    This reverts commit bf5dc2d2b3b12bf57847fc7fe7ed77f729ac8912, reversing
+    changes made to 02a58d23e5c4ebb9de2fd5afdf3bc9bccfb9ccd3.
+
+[33mcommit bf5dc2d2b3b12bf57847fc7fe7ed77f729ac8912[m
+Merge: 02a58d2 3444bae
+Author: halya-h <haplykhalya@gmail.com>
+Date:   Thu Dec 14 22:42:18 2023 +0200
+
+    Merge branch 'UI' of https://github.com/yareyaredaz33/PI_Project_2023 into UI
+    
+    # Conflicts:
+    #       TrackMe/TrackMe/obj/Debug/net6.0-windows/TrackMe.csproj.AssemblyReference.cache
+    #       TrackMe/UserInterface/Profile.xaml
+    #       TrackMe/UserInterface/Settings.xaml
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/DonutSpinner.g.i.cs
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/GeneratedInternalTypeHelper.g.i.cs
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/Loading.g.i.cs
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/Profile.g.i.cs
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/Settings.g.i.cs
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/UserInterface_MarkupCompile.i.cache
+    #       TrackMe/UserInterface/obj/Debug/net6.0-windows/UserInterface_MarkupCompile.i.lref
+
+[33mcommit 3444baedd498abfb0dc876ecfdc86865642eee11[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Dec 14 22:31:42 2023 +0200
+
+    added pages: Profile, Settings
+
+[33mcommit 02a58d23e5c4ebb9de2fd5afdf3bc9bccfb9ccd3[m
+Author: halya-h <haplykhalya@gmail.com>
+Date:   Thu Dec 14 22:18:13 2023 +0200
+
+    added pages profile and settings
+
+[33mcommit 50a2c2ea131cc7dc499084af28279524eda7bb74[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Dec 14 22:01:14 2023 +0200
+
+    added loading screen
+
+[33mcommit 6c3fde6838fe4bb1a83f00d5a014c94cced12ea1[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Dec 14 20:58:17 2023 +0200
+
+    changed buttons
+
+[33mcommit d99d79a3fbde608fcaf4012ab9c4769800038296[m[33m ([m[1;31morigin/dev_rebuild01[m[33m, [m[1;32mdev_rebuild01[m[33m)[m
+Author: danylo <danylobeshta@gmail.com>
+Date:   Thu Dec 14 19:27:11 2023 +0200
+
+    testiki
+
+[33mcommit 8733f338d5e3a0fa51ca1f99c4d31a54fb837f88[m
+Author: danylo <danylobeshta@gmail.com>
+Date:   Tue Dec 12 22:03:32 2023 +0200
+
+    program logic(detect opened programs)
+
+[33mcommit 06a05b8e9d1d4669a5af5dc505effb713a34a83a[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Nov 24 14:50:06 2023 +0200
+
+    projects dependencies fixed
+
+[33mcommit b418e7d539cc35c8a9f167051159cd7ddd55b4bb[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Wed Nov 22 20:14:23 2023 +0200
+
+    side menu implemented
+
+[33mcommit e967458637d55995038e2df8f14b96f15dc50a07[m
+Author: DESKTOP-30CD8TN\Admin <darynaant7@gmail.com>
+Date:   Wed Nov 22 18:17:37 2023 +0200
+
+    improved ui registration1
+
+[33mcommit a9db11bc6da8c234ddb45c6dc633bf2c66a10626[m
+Author: DESKTOP-30CD8TN\Admin <darynaant7@gmail.com>
+Date:   Thu Nov 16 21:51:14 2023 +0200
+
+    improving ui
+
+[33mcommit 13d3a2098ae8b649019e21b7189eafe3ed05e0a1[m
+Author: DESKTOP-30CD8TN\Admin <darynaant7@gmail.com>
+Date:   Thu Nov 16 19:47:54 2023 +0200
+
+    add ui fo registration
+
+[33mcommit d00d093c92e480ed04ff184ef98739f76233f9df[m
+Author: DESKTOP-30CD8TN\Admin <darynaant7@gmail.com>
+Date:   Thu Nov 16 18:43:45 2023 +0200
+
+    ui for main window
+
+[33mcommit d771bdf4cb61013665e3bdc94501e25d29091854[m
+Author: Danylo Beshta <danylobeshta@gmail.com>
+Date:   Thu Nov 9 18:05:56 2023 +0200
+
+    architecture
+
+[33mcommit c89df1f1533a4b394bb0cfa6142f3a2837b826b6[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Nov 9 15:18:25 2023 +0200
+
+    created the project
+
+[33mcommit 1a6e065b1c75b4f106845158a762ef42751dae03[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 20 11:51:07 2023 +0300
+
+    fixed foreign key
+
+[33mcommit a89a298489c83650a599f4e5ba7d981317d93b87[m
+Merge: a8c9c57 192bb64
+Author: yareyaredaz33 <52637771+yareyaredaz33@users.noreply.github.com>
+Date:   Fri Oct 20 01:12:23 2023 +0300
+
+    Merge pull request #17 from yareyaredaz33/sqlite-db
+    
+    er & uml diagrams
+
+[33mcommit 192bb64c4ccc50d2f50281403fafce76b235a858[m[33m ([m[1;31morigin/sqlite-db[m[33m)[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 20 01:11:37 2023 +0300
+
+    er & uml diagrams
+
+[33mcommit a8c9c57299da7144b68a8f8afdc6346a5566bb00[m
+Merge: 4e0f994 ccb637b
+Author: yareyaredaz33 <52637771+yareyaredaz33@users.noreply.github.com>
+Date:   Fri Oct 20 01:04:57 2023 +0300
+
+    Merge pull request #16 from yareyaredaz33/sqlite-db
+    
+    connected with sqlite db
+
+[33mcommit ccb637bfb8fcecbcd1bcccbacf834d5546ac7e15[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 20 01:02:57 2023 +0300
+
+    added in_blacklist
+
+[33mcommit 62e0aa08f99d2e076eeeb07e6e65ee17b5755099[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 20 00:37:00 2023 +0300
+
+    fill+print second table
+
+[33mcommit c37078a5c815bcd7901917c9acca55b169506ee6[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 20 00:24:24 2023 +0300
+
+    created funcs to fill and print first table
+
+[33mcommit 4e0f9946f908b165fac56ac1d55448c19c17e539[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 13 15:09:45 2023 +0300
+
+    fixed Req doc
+
+[33mcommit 8f08269358abc98a33e60c2b51b2a66c86a80348[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 13 00:32:56 2023 +0300
+
+    Update TrackingMe.csproj
+
+[33mcommit af830a9e400ac14ac63bacd06fcfbfa0f3b4a669[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 13 00:31:56 2023 +0300
+
+    fixed functions of filling the tables, added tables output
+
+[33mcommit d742be1b88fadbbc6e34deba60418fcff340c76d[m[33m ([m[1;31morigin/branchTest[m[33m)[m
+Author: danylobeshta <46648119+danylobeshta@users.noreply.github.com>
+Date:   Fri Oct 13 00:13:14 2023 +0300
+
+    test
+    
+    test
+
+[33mcommit 632d8cb90d1f11d38ae0d8e3ca84ddcd893863f2[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Oct 12 23:58:21 2023 +0300
+
+    added db file
+
+[33mcommit 8e4c037c234a6372c96be85697ece463f117e22b[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Oct 12 23:50:45 2023 +0300
+
+    fixed db connection
+
+[33mcommit d5b3d521779fd9da4af723cbc29df30c92a6bd75[m
+Author: danylobeshta <46648119+danylobeshta@users.noreply.github.com>
+Date:   Thu Oct 12 23:05:56 2023 +0300
+
+    Update
+    
+    update
+
+[33mcommit 4801017aeebb325cca4cadab3883bd935ff9f9f0[m
+Author: Danylo Beshta <danylobeshta@gmail.com>
+Date:   Wed Oct 11 16:50:17 2023 +0300
+
+    Project and test sql scripts
+    
+    need data base
+
+[33mcommit efd69f8b81404b58eb97b9a9cbc55bd3f9d52703[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Oct 6 13:58:04 2023 +0300
+
+    updated file
+
+[33mcommit 3b8e76c20b66efec240a88873f4d571f6119474b[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Sep 29 15:45:33 2023 +0300
+
+    commitet changes
+
+[33mcommit 0d30315c1b5cdde1f8d2b9ef95ec9688c672048b[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Sep 29 12:21:13 2023 +0300
+
+    requirements file added
+
+[33mcommit 1b370166c7595327cd0a37fe9bb5f0f9a1237c3d[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Sep 15 13:53:28 2023 +0300
+
+    cleaned folder
+
+[33mcommit fbde0d653c73ccd9f2a927c259af278e8d753340[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Fri Sep 15 13:50:55 2023 +0300
+
+    added folder
+
+[33mcommit df2f05db9bbc38f1d171700f01457af08e014e7d[m
+Author: halya-h <145028721+halya-h@users.noreply.github.com>
+Date:   Fri Sep 15 13:41:40 2023 +0300
+
+    Added presentation
+
+[33mcommit 1074473daa7cab92827b117ca49c8e43ef7b3ead[m
+Author: yareyaredaz33 <lovica15@gmail.com>
+Date:   Thu Sep 14 18:31:24 2023 +0300
+
+    Update README.md
+
+[33mcommit 4925ca6626ec2e52ec96ae408a3da5107de108fe[m
+Author: yareyaredaz33 <52637771+yareyaredaz33@users.noreply.github.com>
+Date:   Thu Sep 14 16:58:25 2023 +0300
+
+    Update README.md
+    
+    changed fontsize
+
+[33
