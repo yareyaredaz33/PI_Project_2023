@@ -180,6 +180,8 @@ TrackMe/UserInterface/bin
 TrackMe/BuisnessLogic/bin
 TrackMe/DataLogic/bin
 TrackMe/.vs
+TrackMe/TrackMe/obj/Debug
+TrackMe/UserInterface/obj/Debug
 # Click-Once directory
 publish/
 
