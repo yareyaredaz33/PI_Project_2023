@@ -26,7 +26,7 @@ namespace TrackMe
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new UserInterface.MainPage());
+            mainFrame.Navigate(new UserInterface.Loading());
             button.Visibility = Visibility.Collapsed;
             TrackMelogo.Visibility = Visibility.Collapsed;
 
