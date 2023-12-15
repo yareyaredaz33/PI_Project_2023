@@ -344,14 +344,22 @@
          FontFamily="Jura"
          FontWeight="Normal"
          FontSize="36"
-
          HorizontalAlignment="Left"
          VerticalAlignment="Center"
          TextAlignment="Center"
          Foreground="#000000"
          IsReadOnly="True"
-         LostFocus="UserNameTextBox_LostFocus"
-         KeyDown="UserNameTextBox_KeyDown"/>
+         LostFocus="TextBox_LostFocus"
+         KeyDown="TextBox_KeyDown">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
 
 
                     <Border
@@ -377,16 +385,27 @@
                         Foreground="#808080" RenderTransformOrigin="1.763,1.801"/>
                 </Grid>
                 <Grid>
-                    <TextBlock x:Name="ageTextBlock"
+                    <TextBox x:Name="userAgeTextBox"
                         Text="25"
                         FontFamily="Jura"
                         FontWeight="Normal"
                         FontSize="36"
-                        LineHeight="43"
                         HorizontalAlignment="Left"
-                        Margin="0,83,0,0"
+                        VerticalAlignment="Top"
                         TextAlignment="Center"
-                        Foreground="#000000" RenderTransformOrigin="0.386,0.251" Height="43" VerticalAlignment="Top"/>
+                        Foreground="#000000"
+                        IsReadOnly="True"
+                        LostFocus="TextBox_LostFocus"
+                        KeyDown="TextBox_KeyDown" Margin="0,90,0,0">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
 
                     <Border
                          Height="7"
@@ -411,17 +430,26 @@
                 <Grid>
 
 
-                    <TextBlock x:Name="jobTextBlock"
-                        Text="Software Developer"
+                    <TextBox x:Name="userOccupationTextBox"
+                        Text="Software developer"
                         FontFamily="Jura"
                         FontWeight="Normal"
                         FontSize="36"
-                        LineHeight="43"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Margin="0,95,0,0"
                         TextAlignment="Center"
-                        Foreground="#000000" />
+                        Foreground="#000000"
+                        IsReadOnly="True"
+                        LostFocus="TextBox_LostFocus"
+                        KeyDown="TextBox_KeyDown" Margin="0,90,0,0">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
 
                     <Border
                              Height="7"

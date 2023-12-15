@@ -21,31 +21,63 @@ namespace UserInterface
     /// </summary>
     public partial class Profile : Page, INotifyPropertyChanged
     {
-        private string myText;
+     private string myText;
+    private string age;
+    private string occupation;
 
-        public string MyText
+    public string MyText
+    {
+        get { return myText; }
+        set
         {
-            get { return myText; }
+            if (myText != value)
+            {
+                myText = value;
+                OnPropertyChanged(nameof(MyText));
+            }
+        }
+    }
+
+        public string Age
+        {
+            get { return age; }
             set
             {
-                if (myText != value)
+                if (age != value)
                 {
-                    myText = value;
-                    OnPropertyChanged(nameof(MyText));
+                    age = value;
+                    OnPropertyChanged(nameof(Age));
+                }
+            }
+        }
+
+        public string Occupation
+        {
+            get { return occupation; }
+            set
+            {
+                if (occupation != value)
+                {
+                    occupation = value;
+                    OnPropertyChanged(nameof(Occupation));
                 }
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        public Profile()
-        {
-            InitializeComponent();
-            DataContext = this; // Set the DataContext to the current instance of the window or ViewModel
-            MyText = "John Doe";
+
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public Profile()
+    {
+        InitializeComponent();
+        DataContext = this; // Set the DataContext to the current instance of the window or ViewModel
+        MyText = "John Doe";
+            Age = "30"; // You can set default values for age and occupation
+            Occupation = "Software Developer";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,26 +96,29 @@ namespace UserInterface
 
             // Робіть TextBox редагованим
             userNameTextBox.IsReadOnly = false;
+            userAgeTextBox.IsReadOnly = false;
+            userOccupationTextBox.IsReadOnly = false;
 
             // Змініть фокус на TextBox і виділіть весь текст
-            userNameTextBox.Focus();
-            userNameTextBox.SelectAll();
-        }
-        private void UserNameTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            // Після втрати фокусу TextBox стає нередагованим
-            userNameTextBox.IsReadOnly = true;
+            
         }
 
-        private void UserNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Після втрати фокусу TextBox стає нередагованим
+            (sender as TextBox).IsReadOnly = true;
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             // Якщо користувач натискає клавішу Enter, TextBox також стає нередагованим
             if (e.Key == Key.Enter)
             {
-                userNameTextBox.IsReadOnly = true;
-                // Ви можете також обробити новий текст, якщо потрібно
+                (sender as TextBox).IsReadOnly = true;
             }
         }
+
+
 
         //private void UpdateTextButton_Click(object sender, RoutedEventArgs e)
         //{
