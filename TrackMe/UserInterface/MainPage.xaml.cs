@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TrackMe.DataLogic;
+
 
 namespace UserInterface
 {
@@ -21,7 +21,7 @@ namespace UserInterface
     /// </summary>
    
     public partial class MainPage : Page
-    { private MyDBLogic? _dbLogic;
+    {
 
         public MainPage()
         {
@@ -41,41 +41,8 @@ namespace UserInterface
         private bool isDarkMode = false;
 
 
-        private void DarkModeToggle_Checked(object sender, RoutedEventArgs e)
-        {
-            isDarkMode = true;
-            ApplyDarkMode();
-        }
-
-        private void DarkModeToggle_Unchecked(object sender, RoutedEventArgs e)
-        {
-            isDarkMode = false;
-            ApplyDarkMode();
-        }
-
-        private void ApplyDarkMode()
-        {
-            if (isDarkMode)
-            {
-                Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/YourApp;component/Styles/DarkStyles.xaml", UriKind.RelativeOrAbsolute) });
-            }
-            else
-            {
-                // Remove the dark styles
-                var darkStyles = Resources.MergedDictionaries.FirstOrDefault(rd => rd.Source != null && rd.Source.OriginalString.EndsWith("DarkStyles.xaml"));
-                if (darkStyles != null)
-                {
-                    Resources.MergedDictionaries.Remove(darkStyles);
-                }
-            }
-        }
-        private void LoadData()
-        {
-            try
-            {
-                List<string> tableNames = _dbLogic.GetTableNames();
-
-<<<<<<< Updated upstream
+       
+   
         private void BackgrondMode(object sender, RoutedEventArgs e)
         {
 
@@ -87,19 +54,7 @@ namespace UserInterface
             }
         }
 
-=======
-                foreach (var tableName in tableNames)
-                {
-                    // Assuming you have a ListView named "dataListView" in your XAML
-                    dataListView.Items.Add(new { TableName = tableName });
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
->>>>>>> Stashed changes
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
 
         {
