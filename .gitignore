@@ -403,3 +403,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 *.user
+TrackMe/TrackMe/obj/Debug/net6.0-windows/MainWindow.g.i.cs

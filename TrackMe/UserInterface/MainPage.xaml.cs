@@ -12,17 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TrackMe.DataLogic;
 
 namespace UserInterface
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml
     /// </summary>
+   
     public partial class MainPage : Page
-    {
+    { private MyDBLogic? _dbLogic;
+
         public MainPage()
         {
             InitializeComponent();
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,7 +69,13 @@ namespace UserInterface
                 }
             }
         }
+        private void LoadData()
+        {
+            try
+            {
+                List<string> tableNames = _dbLogic.GetTableNames();
 
+<<<<<<< Updated upstream
         private void BackgrondMode(object sender, RoutedEventArgs e)
         {
 
@@ -77,10 +87,28 @@ namespace UserInterface
             }
         }
 
+=======
+                foreach (var tableName in tableNames)
+                {
+                    // Assuming you have a ListView named "dataListView" in your XAML
+                    dataListView.Items.Add(new { TableName = tableName });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+>>>>>>> Stashed changes
         private void Button_Click_2(object sender, RoutedEventArgs e)
 
         {
             Application.Current.Shutdown();
         }
+    }
+    public class ProgramViewModel
+    {
+        public string TableName { get; set; }
+        public TimeSpan TotalTimeSpent { get; set; }
     }
 }

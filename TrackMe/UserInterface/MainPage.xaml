@@ -447,6 +447,13 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <ListView x:Name="dataListView" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="200" Margin="422,150,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Table Name" DisplayMemberBinding="{Binding TableName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <Grid/>
     </Grid>
